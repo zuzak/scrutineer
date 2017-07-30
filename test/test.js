@@ -14,8 +14,8 @@ describe('index', function () {
       .get('/')
       .end(function (err, res) {
         if (err) throw err
-          res.text.should.contain('Hello, world!')
-          done()
+        res.text.should.contain('Hello, world!')
+        done()
       })
   })
 })

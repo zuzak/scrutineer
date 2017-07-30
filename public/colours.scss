@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+$conservative: #0087DC;
+$labour: #d50000;
+$liberal-democrat: #FDBB30;
+$snp: #fff95d;
+$plaid: #3f8428;
+$green: #008066;
+$ukip: #b3009d;
+$independent: gray;
+
+// parties elected to devolved/national/european parliaments in UK (not NI)
+$party-list: $conservative, $labour, $snp, $plaid, $green, $ukip, $independent;
+.bar {
+  height: 1em;
+  background-size: 100%;
+  background-color: lime;
+  background-image: linear-gradient(
+    90deg,
+    $conservative,
+
+    $conservative 12.5%,
+    $labour 12.5%,
+
+    $labour 25%,
+    $snp 25%,
+
+    $snp 37.5%,
+    $liberal-democrat 37.5%,
+
+    $liberal-democrat 50%,
+    $plaid 50%,
+
+    $plaid 62.5%,
+    $green 62.5%,
+
+    $green 75%,
+    $ukip 75%,
+
+    $ukip 87.5%,
+    $independent 87.5%
+  )
+}
+
+header {
+  background-color: black;
+  min-height: 3em;
+}
+body, html { margin: 0; font-family: 'Source Sans Pro', sans-serif; font-size: 18px}
+.main-container {
+  margin:auto;
+  max-width: 968px;
+}
