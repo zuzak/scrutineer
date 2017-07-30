@@ -1,0 +1,28 @@
+{
+  "name": "scrutineer",
+  "version": "0.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "NODE_ENV='test' node_modules/mocha/bin/mocha test/*.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zuzak/scrutineer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zuzak/scrutineer/issues"
+  },
+  "homepage": "https://github.com/zuzak/scrutineer#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "morgan": "^1.8.2",
+    "node-sass-middleware": "^0.11.0",
+    "pug": "^2.0.0-rc.2"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2",
+    "should": "^11.2.1",
+    "supertest": "^3.0.0"
+  }
+}
