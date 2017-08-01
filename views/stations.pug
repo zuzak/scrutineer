@@ -9,6 +9,4 @@ block content
   ol.stations
     for station in stations
       li
-        span.address= station.address
-        span.postcode= station.postcode
-        span.id= station.id
+        +station(station)

@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Open Sans Condensed');
+
+$content-width: 968px;
 
 $conservative: #0087DC;
 $labour: #d50000;
@@ -44,12 +46,27 @@ $party-list: $conservative, $labour, $snp, $plaid, $green, $ukip, $independent;
 
 header {
   background-color: black;
-  min-height: 3em;
+  color: white;
+  .header {
+    max-width: $content-width;
+    margin: auto;
+    padding: 0.5em;
+    a {
+      color: inherit;
+      font-size: 2em;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    a:hover {
+      background-color: white;
+      color: black;
+    }
+  }
 }
-body, html { margin: 0; font-family: 'Source Sans Pro', sans-serif; font-size: 18px}
+body, html { margin: 0; font-family: 'Open Sans Condensed', 'Source Sans Pro', sans-serif; font-size: 18px; font-weight: 200 !important}
 .main-container {
   margin:auto;
-  max-width: 968px;
+  max-width: $content-width;
 }
 
 .map {
@@ -61,15 +78,16 @@ span[lang="cy"] {
 
 .stations {
   list-style-type: none;
-  columns: 3
+  columns: 3;
+  margin-left: inherit;
 }
-.stations li {
+.station {
   border: 1px solid gray;
   border-radius: 0.5em;
-  margin: auto 0.5;
+  margin: 0 0.2em 0.5em;
   overflow: hidden;
   padding: 1em;
-
+  height: 5em;
 
   .address {
     white-space: pre;
@@ -83,4 +101,8 @@ span[lang="cy"] {
     display:block;
     font-weight: bold
   }
+}
+
+h1 {
+  text-transform: uppercase;
 }

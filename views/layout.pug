@@ -1,3 +1,4 @@
+include mixins/station
 doctype html
 html
   head
@@ -6,6 +7,8 @@ html
     title= title
   body
     header
+      .header
+        a(href="/") Scrutineer
     .main-container
       .bar
       block content

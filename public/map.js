@@ -36,6 +36,10 @@ function loadStations(url) {
   wget(url, function (err, data) {
     if (err) return console.error(err)
     L.geoJSON(data.results)
-    if (data.next) loadStations(data.next)
+    if (data.next) {
+      loadStations(data.next)
+    } else {
+      console.log('Done')
+    }
   })
 }
