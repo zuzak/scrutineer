@@ -11,6 +11,11 @@ $green: #008066;
 $ukip: #b3009d;
 $independent: gray;
 
+$accent-colour: #efefef;
+$body-colour: white;
+$text-colour: black;
+
+
 // parties elected to devolved/national/european parliaments in UK (not NI)
 $party-list: $conservative, $labour, $snp, $plaid, $green, $ukip, $independent;
 .bar {
@@ -45,9 +50,9 @@ $party-list: $conservative, $labour, $snp, $plaid, $green, $ukip, $independent;
 }
 
 header {
-  background-color: black;
-  color: white;
-  .header {
+  background-color: $text-colour;
+  color: $body-colour;
+  .header, .footer {
     max-width: $content-width;
     margin: auto;
     padding: 0.5em;
@@ -56,12 +61,32 @@ header {
       font-size: 2em;
       font-weight: bold;
       text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.25em;
     }
     a:hover {
-      background-color: white;
-      color: black;
+      background-color: $body-colour;
+      color: $text-colour;
     }
   }
+}
+
+footer {
+  padding-top: 2em;
+  margin: 2em 0 1em;
+  background-color: $accent-colour;
+  box-shadow: 0 50em 0 50em $accent-colour;
+  text-align: right;
+  font-size: 0.75em;
+
+  a {
+    margin: 0.5em
+  }
+}
+
+.header, .footer {
+  max-width: $content-width;
+  margin: auto;
 }
 body, html { margin: 0; font-family: 'Open Sans Condensed', 'Source Sans Pro', sans-serif; font-size: 18px; font-weight: 200 !important}
 .main-container {
@@ -82,7 +107,7 @@ span[lang="cy"] {
   margin-left: inherit;
 }
 .station {
-  border: 1px solid gray;
+  //border: 1px solid $accent-colour;
   border-radius: 0.5em;
   margin: 0 0.2em 0.5em;
   overflow: hidden;
@@ -93,7 +118,7 @@ span[lang="cy"] {
     white-space: pre;
   }
   .id {
-    color: gray;
+    color: $accent-colour;
     float: right;
     font-size: 0.5em;
   }

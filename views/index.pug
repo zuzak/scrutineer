@@ -4,9 +4,17 @@ block append scripts
   script(src='map.js')
 block content
   h1
-    span(lang="cy") Archwiliwr Etholiadau
+    if welsh
+        span(lang="cy") Archwiliwr Etholiadau
     span(lang="en") Election Scrutineer
   h2
     span(lang="en") Map of the Polling Stations
-    span(lang="cy") Map o'r Gorsaf Bleidlesio
+    if welsh
+        span(lang="cy") Map o'r Gorsafodd Pleidlesio
   #map1.map
+
+  ul
+    li
+      a(href="/stations/W06000008") Ceredigion County Council
+    li
+      a(href="/stations/E08000003") Manchester City Council

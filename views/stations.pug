@@ -4,9 +4,13 @@ block append scripts
   script(src='map.js')
 block content
   h1
-    span(lang="cy") Gorsafoedd Pleidlesio
+    if welsh
+        span(lang="cy") Gorsafoedd Pleidlesio
     span(lang="en") Polling stations
   ol.stations
     for station in stations
       li
         +station(station)
+    else
+      li
+        span(lang="en") No stations matched your search.
