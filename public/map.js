@@ -23,9 +23,19 @@ window.onload = function () {
     accessToken: 'pk.eyJ1IjoicGhlbm9scGh0aGFsZWluIiwiYSI6ImNqNXM1anprbjE2MHUzM3M2ZmhjNnR5dWIifQ.AJlqnuS80-PQ1y3VHITFPQ'
   }).addTo(mymap);
   
+  // SHF E08000019
+  // CGN W06000008
   wget('https://wheredoivote.co.uk/api/beta/pollingstations/geo.json?council_id=W06000008', function (err, data) {
     if (err) return console.error(err)
     L.geoJSON(data).addTo(mymap)
     console.log(data)
+  })
+}
+
+function loadStations(url) {
+  wget(url, function (err, data) {
+    if (err) return console.error(err)
+    L.geoJSON(data.results)
+    if (data.next) loadStations(data.next)
   })
 }

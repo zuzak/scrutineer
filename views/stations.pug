@@ -1,0 +1,14 @@
+extends layout
+block append scripts
+  include leaflet.pug
+  script(src='map.js')
+block content
+  h1
+    span(lang="cy") Gorsafoedd Pleidlesio
+    span(lang="en") Polling stations
+  ol.stations
+    for station in stations
+      li
+        span.address= station.address
+        span.postcode= station.postcode
+        span.id= station.id

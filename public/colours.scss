@@ -55,3 +55,29 @@ body, html { margin: 0; font-family: 'Source Sans Pro', sans-serif; font-size: 1
 .map {
   min-height: 40em;
 }
+span[lang="cy"] {
+  float: right;
+}
+
+.stations {
+  list-style-type: none;
+}
+.stations li {
+  border: 1px solid gray;
+  border-radius: 0.5em;
+  margin: 0.5em;
+  padding: 1em;
+  display: inline-block;
+  .address {
+    white-space: pre;
+  }
+  .id {
+    color: gray;
+    float: right;
+    font-size: 0.5em;
+  }
+  .postcode {
+    display:block;
+    font-weight: bold
+  }
+}
