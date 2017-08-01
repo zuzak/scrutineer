@@ -5,3 +5,5 @@
 
 ## Requirements
 * MongoDB (defaults to `mongodb://localhost/scrutineer`: override it with the `MONGODB_URI` environment variable)
+
+By default we synchronise with upstream data sources. Set the `NO_SYNC` environment variable (to something) to disable this.

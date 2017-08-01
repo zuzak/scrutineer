@@ -43,4 +43,6 @@ app.use(function(err, req, res, next) {
   res.render('error.pug');
 });
 
-//require('./jobs/importStations.js')
+if (!process.env.NO_SYNC) {
+  require('./jobs/importStations.js')
+}
