@@ -61,13 +61,16 @@ span[lang="cy"] {
 
 .stations {
   list-style-type: none;
+  columns: 3
 }
 .stations li {
   border: 1px solid gray;
   border-radius: 0.5em;
-  margin: 0.5em;
+  margin: auto 0.5;
+  overflow: hidden;
   padding: 1em;
-  display: inline-block;
+
+
   .address {
     white-space: pre;
   }

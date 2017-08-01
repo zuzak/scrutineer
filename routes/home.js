@@ -5,8 +5,8 @@ app.get('/', function (req, res) {
 })
 
 
-app.get('/stations', function (req, res) {
-  Station.find(function (err, stations) {
+app.get('/stations/:council', function (req, res) {
+  Station.find({council_id: req.params.council}, function (err, stations) {
     if (err) throw err
     res.render('stations.pug', {stations})
   })

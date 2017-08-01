@@ -11,7 +11,7 @@ function paginate (url, cb) {
     url: url
   }, function (err, response, body) {
     if (progressBar === null) {
-      console.log('ok')
+      console.log('Beginning station synchronisation.')
       progressBar = progress({
         tmpl: 'Updating stations... :bar :percent :eta',
         width: 50,
