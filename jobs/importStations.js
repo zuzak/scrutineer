@@ -1,14 +1,12 @@
 var Station = require('../models/station.js')
 var API_URL = 'https://wheredoivote.co.uk/api/beta/pollingstations/geo.json'
 var request = require('request')
-var progress = require('progressbar').create()
 
 function paginate (url, cb) {
   request.get({
     json: true,
     url: url
   }, function (err, response, body) {
-    progress.total(body.count)
     if (err) console.error(err)
     if (body.next) {
       paginate(body.next, cb)
@@ -27,14 +25,12 @@ var checkIfUpdateNeeded = function (cb) {
     }
     var upstreamCount = body.count
     Station.count(function (err2, localCount) {
-      console.log('UPDATE', upstreamCount, localCount)
       cb(err || err2, upstreamCount >= localCount)
     })
   })
 }
 
 module.exports = function () {
-  progress.step('Checking if update needed')
   checkIfUpdateNeeded(function (err, updateNeeded) {
     if (err) console.log('Upstream API unavailable. Skipping sync.')
     if (updateNeeded) {
@@ -44,14 +40,12 @@ module.exports = function () {
 }
 
 var loadStations = function () {
-  progress.step('Updating polling stations')
   paginate(API_URL, function (err, response) {
     if (err) throw err
     if (!response.results) {
-      console.error(response)
+      return console.error(response)
     }
     for (var i = 0; i < response.results.features.length; i++) {
-      progress.addTick()
       var curr = response.results.features[i]
       var res = {
         id: curr.id,
