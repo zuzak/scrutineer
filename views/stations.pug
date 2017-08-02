@@ -1,12 +1,13 @@
 extends layout
 block append scripts
   include leaflet.pug
-  script(src='map.js')
+  script(src='/map2.js')
 block content
   h1
     if welsh
         span(lang="cy") Gorsafoedd Pleidlesio
     span(lang="en") Polling stations
+  div#map.map
   ol.stations
     for station in stations
       li

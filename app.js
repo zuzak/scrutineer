@@ -44,5 +44,6 @@ app.use(function(err, req, res, next) {
 });
 
 if (!process.env.NO_SYNC) {
-  require('./jobs/importStations.js')
+  console.log('ok let\'s go')
+  require('./jobs/importStations.js')()
 }
