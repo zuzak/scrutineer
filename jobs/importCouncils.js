@@ -10,12 +10,16 @@ module.exports = function () {
     if (err) throw err
     for (var i = 0; i < body.length; i++) {
       var council = body[i]
-      console.log('Importing ' + council.name)
-      Council.update({
-        council_id: council.council_id
-      }, council, { upsert: true}, function (err) {
-        if (err) throw err
-      })
+      if (council.council_id) {
+        console.log('Importing ' + council.name)
+        Council.update({
+          council_id: council.council_id
+        }, council, { upsert: true}, function (err) {
+          if (err) throw err
+        })
+      } else {
+        console.error('Unable to update councils?')
+      }
     }
   })
 }
