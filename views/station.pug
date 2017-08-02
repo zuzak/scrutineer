@@ -1,0 +1,13 @@
+extends layout
+block append scripts
+  include leaflet.pug
+  script(src='/map2.js')
+block content
+  h1: +welsh("Polling station", "Gorsaf bleidleiso")
+  h2: +welsh("Location", "Lleoliad")
+  +station(station)
+  h2: +welsh("Responsible authority", "Awdurdod cyfrifiol")
+  +council(council)
+  .clear
+  h2: +welsh("Map", "Map")
+  div.map#map

@@ -8,7 +8,7 @@ module.exports = function () {
     url: API_URL
   }, function (err, res, body) {
     if (err) throw err
-    for (var i = 0; i > body.length; i++) {
+    for (var i = 0; i < body.length; i++) {
       var council = body[i]
       console.log('Importing ' + council.name)
       Council.update({

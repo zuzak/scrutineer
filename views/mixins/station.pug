@@ -1,5 +1,29 @@
 mixin station(station)
-  div.station
-    span.address= station.address
-    span.postcode= station.postcode
-    span.id= station.id
+  a.addresslabel(href='/station/'+station.council_id+'/'+station.station_id)
+    +address(station)
+
+mixin address(place)
+  ul.silent
+    if place.name
+      li.name
+        if place.website
+          a(href=place.website)= place.name
+        else
+          span= place.name
+    if place.address
+      li.address= place.address
+    if place.postcode
+      li.postcode= place.postcode
+    if place.email
+      li.email= place.email
+    if place.phone
+      li.tel= place.phone
+
+mixin council(council)
+  .addresslabel
+    +address(council)
+
+mixin welsh(english, cymraeg)
+  if welsh
+    span(lang="cy")= cymraeg
+  span(lang="en")= english

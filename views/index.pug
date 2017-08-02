@@ -3,18 +3,6 @@ block append scripts
   include leaflet.pug
   script(src='map.js')
 block content
-  h1
-    if welsh
-        span(lang="cy") Archwiliwr Etholiadau
-    span(lang="en") Election Scrutineer
-  h2
-    span(lang="en") Map of the Polling Stations
-    if welsh
-        span(lang="cy") Map o'r Gorsafodd Pleidlesio
-  #map1.map
-
   ul
     li
-      a(href="/stations/W06000008") Ceredigion County Council
-    li
-      a(href="/stations/E08000003") Manchester City Council
+      a(href='/councils') List of councils

@@ -15,6 +15,8 @@ $accent-colour: #efefef;
 $body-colour: white;
 $text-colour: black;
 
+$error-colour: firebrick;
+
 
 // parties elected to devolved/national/european parliaments in UK (not NI)
 $party-list: $conservative, $labour, $snp, $plaid, $green, $ukip, $independent;
@@ -110,17 +112,26 @@ span[lang="cy"] {
   columns: 2;
   margin-left: inherit;
   column-width: 0.2em;
+  .station {
+    display: block;
+  }
 }
-.station {
+a.station:hover {
+  border-color: black;
+}
+.addresslabel {
   //border: 1px solid $accent-colour;
   border-radius: 0.5em;
   margin: 0 0.2em 0.5em;
-  overflow: inherit;
-  padding: 1em;
   min-height: 5em;
-
+  display: inline-block;
+  background-color: $accent-colour;
+  padding: 0.5em;
+  text-decoration:none;
+  color: inherit;
+  border: 1px solid gray;
   .address {
-    white-space: pre;
+    white-space: pre-wrap;
   }
   .id {
     color: $accent-colour;
@@ -128,8 +139,15 @@ span[lang="cy"] {
     font-size: 0.5em;
   }
   .postcode {
-    display:block;
-    font-weight: bold
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+  .name {
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  .tel, .email {
+    margin-top: 0.5em;
   }
 }
 
@@ -137,3 +155,26 @@ h1 {
   text-transform: uppercase;
 }
 
+.clear { clear:both;}
+
+
+.error {
+  h1 {
+    color: $error-colour;
+  }
+  border-left: 0.5em solid $error-colour;
+  padding-left: 1em;
+  .stack {
+    overflow-x: scroll;
+    font-size: 0.7em;
+    max-width: 100%;
+  }
+}
+.right {
+  float:right;
+}
+
+ul.silent {
+  list-style-type: none;
+  padding-left: inherit;
+}
