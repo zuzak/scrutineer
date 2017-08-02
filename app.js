@@ -46,4 +46,7 @@ app.use(function(err, req, res, next) {
 if (!process.env.NO_SYNC) {
   console.log('ok let\'s go')
   require('./jobs/importStations.js')()
+  require('./jobs/importCouncils.js')()
+} else {
+  console.log('Not synchronising upstream.')
 }

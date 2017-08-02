@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 
 var schema = new mongoose.Schema({
-  id: String, // E08000021
+  council_id: String, // E08000021
   name: String, // Newcastle City Council
   email: String, // elections@newcastle.gov.uk
   phone: String, // 0191 278 7878
