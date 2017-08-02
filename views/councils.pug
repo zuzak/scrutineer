@@ -1,0 +1,17 @@
+extends layout
+block append scripts
+  include leaflet.pug
+  script(src='/map2.js')
+block content
+  h1
+    if welsh
+        span(lang="cy") Cynghorau
+    span(lang="en") Councils
+  ol.councils
+    for council in councils.sort()
+      li
+        a(href='/stations/'+council)= council
+    else
+      li
+        span(lang="en") No councils matched your search.
+    p (of 418 or so)

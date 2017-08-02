@@ -18,3 +18,11 @@ app.get('/stations/:council', function (req, res) {
   })
 })
 
+
+app.get('/councils', function (req, res) {
+  Station.find().distinct('council_id', function (err, ids) {
+    if (err) throw err
+    res.render('councils.pug', {councils: ids})
+  })
+
+})

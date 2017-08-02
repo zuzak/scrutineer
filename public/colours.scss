@@ -101,6 +101,10 @@ span[lang="cy"] {
   float: right;
 }
 
+.councils {
+  columns: 6;
+  font-family: monospace;
+}
 .stations {
   list-style-type: none;
   columns: 2;
@@ -132,3 +136,4 @@ span[lang="cy"] {
 h1 {
   text-transform: uppercase;
 }
+

@@ -27,7 +27,13 @@ window.onload = function () {
     var markers = []
     for (var i = 0; i < data.length; i++) {
       var curr = data[i]
-      markers.push(L.marker(curr.coords.reverse()))
+      if (curr.coords) {
+        var marker = L.marker(curr.coords.reverse())
+        marker.bindPopup(curr.address + JSON.stringify(curr.coords))
+        markers.push(marker)
+      } else {
+        console.log('Skipping marker ' + curr.id + ' (no coords)')
+      }
     }
     var group = new L.featureGroup(markers)
     group.addTo(mymap)
