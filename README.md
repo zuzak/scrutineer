@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/zuzak/scrutineer.svg?branch=master)](https://travis-ci.org/zuzak/scrutineer)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## Setup
+
 ## Requirements
 * MongoDB (defaults to `mongodb://localhost/scrutineer`: override it with the `MONGODB_URI` environment variable)
 

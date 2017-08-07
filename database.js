@@ -6,6 +6,7 @@ var db = module.exports = mongoose.connection
 
 db.on('error', function (err) {
   console.error('DB PROBLEM', err)
+  throw err;
 })
 db.once('open', function () {
   console.log('Connected to database.')
