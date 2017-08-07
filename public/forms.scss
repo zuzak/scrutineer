@@ -1,0 +1,61 @@
+
+ul.options {
+  li {
+    display: inline-block;
+    padding: 1em;
+    margin: 0.2em;
+
+    label {
+      height: 100%;
+      padding: 1em;
+      background-color: ivory;
+    }
+  }
+
+}
+
+li[data-subquestion-of] {
+  background-color: hotpink;
+}
+
+ul.options.multi {
+  li {
+    display: block;
+  }
+}
+
+
+input:checked ~ label {
+  outline: 3px solid $focus-colour;
+}
+
+input[value="CON"] ~ label {
+  border-left: 0.2em solid $conservative;
+}
+
+input[value="LD"] ~ label {
+  border-left: 0.2em solid $liberal-democrat;
+}
+
+input[value="LAB"] ~ label {
+  border-left: 0.2em solid $labour;
+}
+
+input[value="GRN"] ~ label {
+  border-left: 0.2em solid $green;
+}
+
+input[value="PC"] ~ label {
+  border-left: 0.2em solid $plaid;
+}
+
+input[value="UKIP"] ~ label {
+  border-left: 0.2em solid $ukip;
+}
+
+section {
+  display:none;
+}
+section:target {
+  display: block;
+}

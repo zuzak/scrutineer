@@ -1,8 +1,9 @@
 include mixins/station
+include mixins/forms
 doctype html
 html
   head
-    link(rel="stylesheet", href="/colours.css")
+    link(rel="stylesheet", href="/index.css")
     block scripts
     title= title
   body
@@ -12,6 +13,7 @@ html
     .main-container
       .bar
       block content
+    .clear
     footer
       .footer
         a(href='//democracyclub.org.uk',lang="en")

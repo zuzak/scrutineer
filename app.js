@@ -20,6 +20,7 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.locals.pretty = true;
 //app.use('/', index);
 
 var routes = require('./routes');

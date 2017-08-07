@@ -1,59 +1,109 @@
 extends layout
-mixin radio(name, value, content)
-    +option("radio", name, value, content)
-mixin checkbox(name, value, content)
-  +option("checkbox", name, value, content)
-mixin option(type, name, value, content)
-  input(type=type, value=value, name=name, id=name + '-' + value)
-  label(for=name + '-' + value)= content
-
-mixin closedq(question, id)
-  h3= question
-  +radio(id, "Yes", "Yes")
-  +radio(id, "No", "No")
 block append scripts
-  include leaflet.pug
-  script(src='/map2.js')
+  script(src="./forms.js")
+
+
+
 block content
-  h1 Election Observation
+  h1 Election Observation (CGN-001 Ffwrnais)
   form
-    ul(role="tablist")
-      li(role="presentation"): a(href="#section1" tabindex=0) Approach
-      li(role="presentation"): a(href="#section2" tabindex=0) Entry
-      li(role="presentation"): a(href="#section3" tabindex=0) Procedure
-    section#section1(role="tabpanel")
-      h2 Approach to the Polling Place
-      ul.silent
-        li: +closedq("Is the vicinity of the polling station free from any circumstances which could influence voters' choices?", "undue-influence")
-        li: +closedq("Are there any defaced or damaged notices?", "damaged-notices")
-        li: +closedq("Was the polling place easy to find?", "easy-to-find")
-        li: +closedq("Is the polling station easily accessible to wheelchairs?", "accessible")
-        li: +closedq("Is the polling station clean, tidy, and free from any hazards?", "no-hazards")
-        li: +closedq("Are there any queues?", "queues")
-        li: +closedq("Are there parking spaces?", "parking")
-        li: +closedq("Are there parking spaces reserved for disabled electors?", "dparking")
-        li: +closedq("Are there any tellers at the polling place?", "tellers1")
-        li
-          h3 If so, from which campaigns?
-          +checkbox("tellers", "CON", "Conservative and Unionist Party")
-          +checkbox("tellers", "LD", "Liberal Democrats")
-          +checkbox("tellers", "LAB", "Labour")
-          +checkbox("tellers", "GRN", "The Green Party")
-          +checkbox("tellers", "PC", "Plaid Cymru")
-          +checkbox("tellers", "UKIP", "United Kingdom Independence Party")
-        li: +closedq("Are they obviously distinct from polling station staff?", "tellers2")
-    section#section2(role="tabpanel")
-      h2 Entry to Polling Station
-      ul.silent
-        li
-          h3 To what extent is your observer status verified?
-          +checkbox("card-check", "unverified", "Unverified")
-          +checkbox("card-check", "verbal", "Verbal")
-          +checkbox("card-check", "card", "Card")
-          +checkbox("card-check", "handbook", "Handbook")
-          +checkbox("card-check", "phone", "Phone call")
-          +checkbox("card-check", "refused", "Refusal")
-    section#section3(role="tabpanel")
-      h3 Voting Procedure
+    .sidebar
+      ul
+        li: a(href="#approach") Approach
+        li: a(href="#entry") Entry
+        li: a(href="#procedure") Procedure
+        li: a(href="#place") Place
+        li: a(href="#verdicts") Verdicts
+        li: a(href="#info") Information
+    .mainbar
+      section#approach
+        h2 Approach to the Polling Place
+        ul.silent
+          li: +closedq("Is the vicinity of the polling station free from any circumstances which could influence voters' choices?", "undue-influence")
+          li: +closedq("Are there any defaced or damaged notices?", "damaged-notices")
+          li: +closedq("Was the polling place easy to find?", "easy-to-find")
+          li: +closedq("Is the polling station easily accessible to wheelchairs?", "accessible")
+          li: +closedq("Is the polling station clean, tidy, and free from any hazards?", "no-hazards")
+          li: +closedq("Are there any queues?", "queues")
+          li: +closedq("Are there parking spaces?", "parking")
+          li(data-subquestion-of="parking"): +closedq("Are there parking spaces reserved for disabled electors?", "dparking")
+          li: +closedq("Are there any tellers at the polling place?", "tellers1")
+          li(data-subquestion-of='tellers1')
+            h3 If so, from which campaigns?
+            ul.options.multi
+              +checkbox("tellers", "CON", "Conservative and Unionist Party")
+              +checkbox("tellers", "LD", "Liberal Democrats")
+              +checkbox("tellers", "LAB", "Labour")
+              +checkbox("tellers", "GRN", "The Green Party")
+              +checkbox("tellers", "PC", "Plaid Cymru")
+              +checkbox("tellers", "UKIP", "United Kingdom Independence Party")
+          li(data-subquestion-of='tellers1'): +closedq("Are they obviously distinct from polling station staff?", "tellers2")
+      section#entry
+        h2 Entry to Polling Station
+        ul.silent
+          li
+            h3 To what extent is your observer status verified?
+            ul.options
+              +checkbox("card-check", "unverified", "Unverified")
+              +checkbox("card-check", "verbal", "Verbal")
+              +checkbox("card-check", "card", "Card")
+              +checkbox("card-check", "handbook", "Handbook")
+              +checkbox("card-check", "phone", "Phone call")
+              +checkbox("card-check", "refused", "Refusal")
+      section#procedure
+        h2 Voting Procedure
         ul.silent
           li: +closedq("Did you observe electors turning up to cast their ballot?")
+      section#place
+        h2 Polling Place
+        ul.silent
+          li: +closedq("Are seats available for any electors who many need to rest?", "seats")
+          li: +closedq("Are all booths situated in such a way to preserve the secrecy of the vote?", "privatebooths")
+          li: +closedq("Do all booths have pencils?", "pencils")
+          li: +closedq("Is there a low-level voting booth, or equivalent?", "low-level-booth")
+          li: +closedq("Are the voting booths well-lit, but out of direct sunlight?", "well-lit")
+          li: +closedq("Are the election notices displayed inside the polling station and accessible to all voters?", "notices")
+          li: +closedq("Is the \"guidance to voters\" displayed inside and outside the polling station?", "guidance-to-voters")
+          li: +closedq("Are the \"instructions for voters\" displayed in every polling booth as required by law?", "instructions-for-voters")
+          li: +closedq("Are the ballot boxes correctly sealed?", "sealed-boxes")
+          li: +closedq("Has anybody handed in postal ballots today?", "postal-ballots")
+          li: +closedq("Are the polling staff wearing neutral colours?", "neutral-colours")
+          li: +closedq("Are there any people, other than electors, polling staff, and your observation team in the polling station?", "non-electors-intro")
+          li(data-subquestion-of='non-electors-intro')
+            h3 If so, who?
+            ul.options
+              +checkbox("non-electors", "candidates", "Election candidates")
+              +checkbox("non-electors", "agents", "Election agents")
+              +checkbox("non-electors", "police", "Police officers")
+              +checkbox("non-electors", "ec", "Representatives of the Electoral Commission")
+              +checkbox("non-electors", "observers", "Accredited election observers")
+              +checkbox("non-electors", "u18", "Persons under the age of 18, accompanying")
+              +checkbox("non-electors", "companions", "Companions of disabled voters")
+              +checkbox("non-electors", "other", "Other")
+      section#verdicts
+        h2 Verdicts
+        ul.silent
+          li: +closedq("Are you satisfied the right to universal, individual, and secret suffrage is being held?")
+          li: +closedq("Are you satisfied the integrity of the vote is being upheld?")
+      section(id="info")
+        h2 Information
+          h3 Code of Practice for Electoral Observers
+          ol
+            li Respect the laws of the United Kingdom, international human rights, and the authority of electoral bodies
+            li Maintain strict political impartiality at all times
+            li Maintain and aid in maintaining the secrecy of the ballot
+            li Do not obstruct election processes
+            li Provide appropriate identification
+            li Maintain accuracy of observations and professionalism in drawing conclusions
+            li Maintain proper personal behaviour
+            li Agree to follow the above guidance
+          h3 Contact Numbers
+          ul
+            li Ceredigion County Council: 01545 572033 / 572279
+            li Powys County Council Electoral Services: 01597 826717 / 826747
+            li Electoral Commission Cardiff: 0333 103 1929
+            li Police: 999 / 101
+        //ul.silent
+          li: +closedq("Do you certify that the information you have recorded in this questionnaire is accurate?", "certify")
+          li(data-subquestion-of="certify")
+            input(type="submit",value="Save questionnaire").button

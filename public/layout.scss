@@ -1,0 +1,36 @@
+$sidebar-width: 33%;
+$mainbar-width: 66%;
+.sidebar {
+  max-width: $sidebar-width;
+  float: left;
+
+  ul {
+    padding-left: 0;
+    border-right: 1px solid $divider-colour;
+    margin: 2em;
+    margin-left: 0;
+  }
+
+   li {
+    border-top: 1px solid $divider-colour;
+    list-style-type: none;
+    padding-left: 0;
+     a {
+       display: block;
+       padding: 2em;
+     }
+     a:hover {
+       background-color: $focus-colour;
+     }
+  }
+  ul:last-child {
+    border-bottom: 1px solid $divider-colour;
+  }
+}
+.mainbar {
+  max-width: $mainbar-width;
+  display: inline-block;
+    margin-top: 2em;
+
+  border-top: 1px solid $divider-colour;
+}
