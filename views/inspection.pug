@@ -43,14 +43,14 @@ block content
         h2 Entry to Polling Station
         ol
           li(value=i++)
-            h3 To what extent is your observer status verified?
+            h3 To what extent did the polling staff verify your observer's identification?
             ul.options
-              +checkbox("card-check", "unverified", "Unverified")
-              +checkbox("card-check", "verbal", "Verbal")
-              +checkbox("card-check", "card", "Card")
-              +checkbox("card-check", "handbook", "Handbook")
-              +checkbox("card-check", "phone", "Phone call")
-              +checkbox("card-check", "refused", "Refusal")
+              +checkbox("card-check", "unverified", "They did not perform any verification")
+              +checkbox("card-check", "verbal", "They checked verbally")
+              +checkbox("card-check", "card", "They looked at the identification card")
+              +checkbox("card-check", "handbook", "They consulted the polling station handbook")
+              +checkbox("card-check", "phone", "They made a phone call (to the electoral body)")
+              +checkbox("card-check", "refused", "They refused access to the polling station")
           li(value=i++)#js-ingress
             h3 What time did you enter the polling station?
             input(type="time",name="ingress",id="ingress")

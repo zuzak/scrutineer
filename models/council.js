@@ -9,6 +9,11 @@ var schema = new mongoose.Schema({
   postcode: String, // NE1 8QH
   address: String, // Electoral Registration Officer\nCivic Centre
   // council_id
+
+  iso: String, // NET
+  slug: String, // newcastle
+  territory: String, // ENG
+  humanName: String // Newcastle Council
 })
 
 module.exports = mongoose.model('Council', schema)

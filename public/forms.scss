@@ -5,10 +5,22 @@ ul.options {
     padding: 1em;
     margin: 0.2em;
 
+    input {
+
+      transform: scale(2);
+    }
     label {
       height: 100%;
       padding: 1em;
       background-color: $label-background-colour;
+
+      span {
+        padding-left: 1em;
+
+      }
+    }
+    label:hover {
+      background-color: lighten($label-background-colour, 10%);
     }
   }
 
