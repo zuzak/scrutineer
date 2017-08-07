@@ -27,9 +27,9 @@ block content
           li(value=i++): +closedq("Is the polling station clean, tidy, and free from any hazards?", "no-hazards")
           li(value=i++): +closedq("Are there any queues?", "queues")
           li(value=i++): +closedq("Are there parking spaces?", "parking")
-          li(value=i++,data-subquestion-of="parking"): +closedq("Are there parking spaces reserved for disabled electors?", "dparking")
+          li(value=i++, data-subquestion-of="parking"): +closedq("Are there parking spaces reserved for disabled electors?", "dparking")
           li(value=i++): +closedq("Are there any tellers at the polling place?", "tellers1")
-          li(value=i++,data-subquestion-of='tellers1')
+          li(value=i++, data-subquestion-of='tellers1')
             h3 If so, from which campaigns?
             ul.options.multi
               +checkbox("tellers", "CON", "Conservative and Unionist Party")
@@ -38,7 +38,7 @@ block content
               +checkbox("tellers", "GRN", "The Green Party")
               +checkbox("tellers", "PC", "Plaid Cymru")
               +checkbox("tellers", "UKIP", "United Kingdom Independence Party")
-          li(value=i++,data-subquestion-of='tellers1'): +closedq("Are they obviously distinct from polling station staff?", "tellers2")
+          li(value=i++, data-subquestion-of='tellers1'): +closedq("Are they obviously distinct from polling station staff?", "tellers2")
       section#entry
         h2 Entry to Polling Station
         ol
@@ -53,7 +53,7 @@ block content
               +checkbox("card-check", "refused", "They refused access to the polling station")
           li(value=i++)#js-ingress
             h3 What time did you enter the polling station?
-            input(type="time",name="ingress",id="ingress")
+            input(type="time", name="ingress", id="ingress")
       section#procedure
         h2 Voting Procedure
         ol
@@ -84,7 +84,7 @@ block content
           li(value=i++): +closedq("Has anybody handed in postal ballots today?", "postal-ballots")
           li(value=i++): +closedq("Are the polling staff wearing neutral colours?", "neutral-colours")
           li(value=i++): +closedq("Are there any people, other than electors, polling staff, and your observation team in the polling station?", "non-electors-intro")
-          li(value=i++,data-subquestion-of='non-electors-intro')
+          li(value=i++, data-subquestion-of='non-electors-intro')
             h3 If so, who?
             ul.options
               +checkbox("non-electors", "candidates", "Election candidates")
@@ -101,7 +101,7 @@ block content
           li(value=i++): +closedq("Are you satisfied the right to universal, individual, and secret suffrage is being held?")
           li(value=i++): +closedq("Are you satisfied the integrity of the vote is being upheld?")
           li(value=i++): +closedq("Do you wish to add further details?", "further-details")
-          li(value=i++,data-subquestion-of="further-details")
+          li(value=i++, data-subquestion-of="further-details")
             h3 Additional comments
             textarea(name="comments")
       section(id="info")
