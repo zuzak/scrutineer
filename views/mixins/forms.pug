@@ -8,7 +8,13 @@ mixin option(type, name, value, content)
     label(for=name + '-' + value)= content
 
 mixin closedq(question, id)
+  +radiogroup(id, question, ["Yes", "No"])
+
+mixin radiogroup(id, question, options)
   h3= question
   ul.options
-    +radio(id, "Yes", "Yes")
-    +radio(id, "No", "No")
+    for option in options
+      +radio(id, option, option)
+
+mixin scale(question, id)
+  +radiogroup(id, question, ["Always", "Regularly", "Erratically", "Never", "Arbitrarily"])

@@ -4,28 +4,31 @@ $mainbar-width: 66%;
   max-width: $sidebar-width;
   float: left;
 
-  ul {
+  menu {
     padding-left: 0;
-    border-right: 1px solid $divider-colour;
+    //border-right: 1px solid $divider-colour;
     margin: 2em;
     margin-left: 0;
+
+    li {
+      border-top: 1px solid $divider-colour;
+      list-style-type: none;
+      padding-left: 0;
+      border-right: 1px solid $divider-colour;
+      a {
+        display: block;
+        padding: 2em;
+      }
+      a:hover {
+        background-color: $focus-colour;
+      }
+      li:last-child {
+        border-bottom: 1px solid $divider-colour;
+        border-bottom-right-radius: 1em;
+      }
+    }
   }
 
-   li {
-    border-top: 1px solid $divider-colour;
-    list-style-type: none;
-    padding-left: 0;
-     a {
-       display: block;
-       padding: 2em;
-     }
-     a:hover {
-       background-color: $focus-colour;
-     }
-  }
-  ul:last-child {
-    border-bottom: 1px solid $divider-colour;
-  }
 }
 .mainbar {
   max-width: $mainbar-width;
@@ -33,4 +36,28 @@ $mainbar-width: 66%;
     margin-top: 2em;
 
   border-top: 1px solid $divider-colour;
+}
+
+.status {
+  background-color: lightsteelblue;
+  text-align: center;
+  display: inline-block;
+  padding: 1em;
+  border-radius: 0.2em;
+
+  margin: auto;
+}
+
+.subheading {
+  background-color: $accent-colour;
+  padding: 0.5em;
+  font-size: 1em;
+
+  p {
+    max-width: $content-width;
+    margin: auto;
+  }
+
+
+
 }

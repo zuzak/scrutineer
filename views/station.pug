@@ -5,6 +5,12 @@ block append scripts
 block content
   h1: +welsh("Polling station", "Gorsaf bleidleiso")
   h2: +welsh("Location", "Lleoliad")
+  ul.silent
+    li: a.right(href=observe_url).button Observe this polling station
+    if station.postcode
+      li: a.right(href='//www.google.com/maps/dir/Current+Location/'+station.postcode).button Get directions from Google Maps
+    else
+      li: a.right(href='//www.google.com/maps/dir/Current+Location/'+encodeURIComponent(station.address)).button Get directions from Google Maps
   +station(station)
   h2: +welsh("Responsible authority", "Awdurdod cyfrifiol")
   +council(council)

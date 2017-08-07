@@ -71,11 +71,12 @@ footer {
   max-width: $content-width;
   margin: auto;
 }
-body, html { margin: 0; font-family: 'Open Sans Condensed', 'Source Sans Pro', sans-serif; font-size: 18px; font-weight: 200 !important}
+body, html { margin: 0; font-family: $font-stack; font-size: 18px; font-weight: 200 !important}
 .main-container {
   margin:auto;
   max-width: $content-width;
 }
+
 
 .map {
   min-height: 40em;
@@ -157,4 +158,9 @@ h1 {
 ul.silent {
   list-style-type: none;
   padding-left: inherit;
+}
+
+.station-id {
+  padding-left: 1em;
+  font-size: 0.7em;
 }

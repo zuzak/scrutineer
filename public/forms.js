@@ -13,4 +13,15 @@ window.onload = function () {
       }
     }
   })
+
+  var ingressparent = document.getElementById('js-ingress')
+  var btn = document.createElement('a')
+  btn.href = '#entry'
+  btn.className = ' button'
+  btn.innerHTML = 'Insert current time'
+  btn.addEventListener('click', function (e) {
+    var now = new Date()
+    document.getElementById('ingress').value = now.toTimeString()
+  })
+  ingressparent.appendChild(btn)
 }

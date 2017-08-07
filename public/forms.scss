@@ -8,14 +8,16 @@ ul.options {
     label {
       height: 100%;
       padding: 1em;
-      background-color: ivory;
+      background-color: $label-background-colour;
     }
   }
 
 }
 
 li[data-subquestion-of] {
-  background-color: hotpink;
+  //background-color: $accent-colour;
+  //border-left: 0.5em solid $accent-colour;
+  //padding-left: 0.5em;
 }
 
 ul.options.multi {
@@ -58,4 +60,26 @@ section {
 }
 section:target {
   display: block;
+}
+textarea {
+  font-family: inherit;
+  width: 100%;
+  min-height: 4em;
+  font-size: 100%;
+}
+
+.inspection ol {
+  list-style-type: decimal-leading-zero;
+}
+
+input {
+  font-size: inherit;
+}
+
+.button {
+  background-color: $label-background-colour;
+  padding: 1em;
+  margin-left: 1em;
+  color: inherit;
+  text-decoration: inherit;
 }

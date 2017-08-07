@@ -8,7 +8,7 @@ block content
         span(lang="cy") Gorsafoedd Pleidlesio
     span(lang="en") Polling stations
   h2= council.name
-  pre= JSON.stringify(council,null,4)
+  +council(council)
   div#map.map
   ol.stations
     for station in stations
