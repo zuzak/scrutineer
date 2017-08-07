@@ -28,3 +28,7 @@ app.get('/station/:council/:station', function (req, res, next) {
     })
   })
 })
+
+app.get('/station', function (req, res, next) {
+  res.render('inspection.pug')
+})

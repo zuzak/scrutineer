@@ -1,0 +1,59 @@
+extends layout
+mixin radio(name, value, content)
+    +option("radio", name, value, content)
+mixin checkbox(name, value, content)
+  +option("checkbox", name, value, content)
+mixin option(type, name, value, content)
+  input(type=type, value=value, name=name, id=name + '-' + value)
+  label(for=name + '-' + value)= content
+
+mixin closedq(question, id)
+  h3= question
+  +radio(id, "Yes", "Yes")
+  +radio(id, "No", "No")
+block append scripts
+  include leaflet.pug
+  script(src='/map2.js')
+block content
+  h1 Election Observation
+  form
+    ul(role="tablist")
+      li(role="presentation"): a(href="#section1" tabindex=0) Approach
+      li(role="presentation"): a(href="#section2" tabindex=0) Entry
+      li(role="presentation"): a(href="#section3" tabindex=0) Procedure
+    section#section1(role="tabpanel")
+      h2 Approach to the Polling Place
+      ul.silent
+        li: +closedq("Is the vicinity of the polling station free from any circumstances which could influence voters' choices?", "undue-influence")
+        li: +closedq("Are there any defaced or damaged notices?", "damaged-notices")
+        li: +closedq("Was the polling place easy to find?", "easy-to-find")
+        li: +closedq("Is the polling station easily accessible to wheelchairs?", "accessible")
+        li: +closedq("Is the polling station clean, tidy, and free from any hazards?", "no-hazards")
+        li: +closedq("Are there any queues?", "queues")
+        li: +closedq("Are there parking spaces?", "parking")
+        li: +closedq("Are there parking spaces reserved for disabled electors?", "dparking")
+        li: +closedq("Are there any tellers at the polling place?", "tellers1")
+        li
+          h3 If so, from which campaigns?
+          +checkbox("tellers", "CON", "Conservative and Unionist Party")
+          +checkbox("tellers", "LD", "Liberal Democrats")
+          +checkbox("tellers", "LAB", "Labour")
+          +checkbox("tellers", "GRN", "The Green Party")
+          +checkbox("tellers", "PC", "Plaid Cymru")
+          +checkbox("tellers", "UKIP", "United Kingdom Independence Party")
+        li: +closedq("Are they obviously distinct from polling station staff?", "tellers2")
+    section#section2(role="tabpanel")
+      h2 Entry to Polling Station
+      ul.silent
+        li
+          h3 To what extent is your observer status verified?
+          +checkbox("card-check", "unverified", "Unverified")
+          +checkbox("card-check", "verbal", "Verbal")
+          +checkbox("card-check", "card", "Card")
+          +checkbox("card-check", "handbook", "Handbook")
+          +checkbox("card-check", "phone", "Phone call")
+          +checkbox("card-check", "refused", "Refusal")
+    section#section3(role="tabpanel")
+      h3 Voting Procedure
+        ul.silent
+          li: +closedq("Did you observe electors turning up to cast their ballot?")

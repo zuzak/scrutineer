@@ -1,6 +1,8 @@
 mixin station(station)
   a.addresslabel(href='/station/'+station.council_id+'/'+station.station_id)
     +address(station)
+    if !station.coords
+      emph.right (Not plotted.)
 
 mixin address(place)
   ul.silent
