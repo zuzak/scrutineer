@@ -23,22 +23,38 @@ window.onload = function () {
     accessToken: 'pk.eyJ1IjoicGhlbm9scGh0aGFsZWluIiwiYSI6ImNqNXM1anprbjE2MHUzM3M2ZmhjNnR5dWIifQ.AJlqnuS80-PQ1y3VHITFPQ'
   }).addTo(mymap)
 
+  var markers = []
   wget(window.location.href + '.json', function (err, data) {
-    var markers = []
     for (var i = 0; i < data.length; i++) {
       var curr = data[i]
       if (curr.coords) {
         var marker = L.marker(curr.coords.reverse())
-        marker.bindPopup(curr.address + JSON.stringify(curr.coords))
+        marker.bindPopup(curr.address)
         markers.push(marker)
       } else {
         console.log('Skipping marker ' + curr.id + ' (no coords)')
       }
     }
-    // noinspection JSPotentiallyInvalidConstructorUsage
+
     var group = new L.featureGroup(markers)
     group.addTo(mymap)
 
     mymap.fitBounds(group.getBounds())
+    mymap.locate();
+
+    function onLocationFound(e) {
+      var radius = e.accuracy / 2;
+
+      /*var marker = L.marker(e.latlng).addTo(mymap)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+      markers.push(marker)
+      var group = new L.featureGroup(markers)
+      mymap.fitBounds(group.getBounds())*/
+      L.circle(e.latlng, radius).addTo(mymap);
+
+    }
+
+    mymap.on('locationfound', onLocationFound);
   })
 }

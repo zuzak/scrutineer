@@ -110,34 +110,5 @@ progress {
   width: 80%;
   margin:auto;
   display: block;
-  height: 1em;
-}
-
-$section-colour: #123;
-section {
-  border-bottom: 0.2em solid $section-colour;
-}
-section:nth-child(1) {
-  border-color: lighten($section-colour, 20%);
-}
-section:nth-child(2) {
-  border-color: lighten($section-colour, 30%);
-}
-section:nth-child(3) {
-  border-color: lighten($section-colour, 40%);
-}
-section:nth-child(4) {
-  border-color: lighten($section-colour, 50%);
-}
-section:nth-child(5) {
-   border-color: lighten($section-colour, 60%);
-}
-section:nth-child(6) {
-  border-color: lighten($section-colour, 70%);
-}
-section:nth-child(7) {
-  border-color: lighten($section-colour, 80%);
-}
-section:nth-child(8) {
-  border-color: lighten($section-colour, 90%);
+  min-height: 1em;
 }

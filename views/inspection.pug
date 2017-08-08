@@ -23,8 +23,22 @@ block content
         li: a(href="#info") Information
       +station(station)
     .mainbar.inspection
+      section(id="info")
+        h2 Information
+        .right: +council(council)
+        h3 Code of Practice for Electoral Observers
+        ol
+          li Respect the laws of the United Kingdom, international human rights, and the authority of electoral bodies
+          li Maintain strict political impartiality at all times
+          li Maintain and aid in maintaining the secrecy of the ballot
+          li Do not obstruct election processes
+          li Provide appropriate identification
+          li Maintain accuracy of observations and professionalism in drawing conclusions
+          li Maintain proper personal behaviour
+          li Agree to follow the above guidance
+        .right: +station(station)
       - i = 1
-      section#approach
+      section#approach.clear
         h2 Approach to the Polling Place
         ol
           li(value=i++): +closedq("Is the vicinity of the polling station free from any circumstances which could influence voters' choices?", "undue-influence")
@@ -114,20 +128,7 @@ block content
         li(value=i++)#js-egress
           h3 What time did you leave the polling station?
           input(type="time", name="egress", id="egress")
-      section(id="info")
-        h2 Information
-        .right: +council(council)
-        h3 Code of Practice for Electoral Observers
-        ol
-          li Respect the laws of the United Kingdom, international human rights, and the authority of electoral bodies
-          li Maintain strict political impartiality at all times
-          li Maintain and aid in maintaining the secrecy of the ballot
-          li Do not obstruct election processes
-          li Provide appropriate identification
-          li Maintain accuracy of observations and professionalism in drawing conclusions
-          li Maintain proper personal behaviour
-          li Agree to follow the above guidance
-        .right: +station(station)
+
         //ul.silent
           li: +closedq("Do you certify that the information you have recorded in this questionnaire is accurate?", "certify")
           li(data-subquestion-of="certify")
