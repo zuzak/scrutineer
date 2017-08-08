@@ -3,6 +3,10 @@
 [![Build Status](https://travis-ci.org/zuzak/scrutineer.svg?branch=master)](https://travis-ci.org/zuzak/scrutineer)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## Screenshots
+![Screenshot](https://i.imgur.com/605GZBsl.png)
+
+![Screenshot](https://i.imgur.com/xVyafxal.jpg)
 ## Setup
 
 ## Requirements
