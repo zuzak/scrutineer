@@ -3,7 +3,7 @@ mixin radio(name, value, content)
 mixin checkbox(name, value, content)
   +option("checkbox", name, value, content)
 mixin option(type, name, value, content)
-  li
+  li.option
     input(type=type, value=value, name=name, id=name + '-' + value)
     label(for=name + '-' + value)= content
 mixin closedq(question, id)

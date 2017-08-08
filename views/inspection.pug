@@ -64,11 +64,11 @@ block content
         h2 Entry to Polling Station
         ol
           li(value=i++)#js-ingress
-            h3 What time did you enter the polling station?
+            label(for="ingress"): h3 What time did you enter the polling station?
             input(type="time", name="ingress", id="ingress")
           li(value=i++)
             h3 To what extent did the polling staff verify your observer's identification?
-            ul.options
+            ul.options.multi
               +checkbox("card-check", "unverified", "They did not perform any verification")
               +checkbox("card-check", "verbal", "They checked verbally")
               +checkbox("card-check", "card", "They looked at the identification card")
@@ -107,7 +107,7 @@ block content
           li(value=i++): +closedq("Are there any people, other than electors, polling staff, and your observation team in the polling station?", "non-electors-intro")
           li(value=i++, data-subquestion-of='non-electors-intro')
             h3 If so, who?
-            ul.options
+            ul.options.multi
               +checkbox("non-electors", "candidates", "Election candidates")
               +checkbox("non-electors", "agents", "Election agents")
               +checkbox("non-electors", "police", "Police officers")

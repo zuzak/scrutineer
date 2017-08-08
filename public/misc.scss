@@ -12,7 +12,13 @@ footer {
   }
 }
 
-body, html { margin: 0; font-family: $font-stack; font-size: 18px; font-weight: 200 !important}
+body, html { margin: 0; font-family: $font-stack; font-size: 1.5em;}
+
+@media (min-width:1025px) {
+  body, html {
+    font-size: 1.5em;
+  }
+}
 .main-container {
   margin:auto;
   max-width: $content-width;

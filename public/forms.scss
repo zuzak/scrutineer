@@ -12,6 +12,7 @@ ul.options {
       padding: 1em;
       background-color: $label-background-colour;
 
+
       span {
         padding-left: 1em;
 
@@ -112,8 +113,15 @@ progress {
 }
 
 .inspection {
+  h2 {
+    margin-top: 2em;
+  }
   h3 {
-    margin-top: 5em;
+    margin-top: 2em;
     margin-bottom: 2em;
   }
+}
+
+.multi .option {
+  margin: 1.7em;
 }
