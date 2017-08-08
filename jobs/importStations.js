@@ -47,7 +47,7 @@ var loadStations = function () {
     }
     for (var i = 0; i < response.results.features.length; i++) {
       var curr = response.results.features[i]
-      console.log("Importing " + curr.properties.station_id)
+      console.log('Importing ' + curr.properties.station_id)
       var res = {
         id: curr.id,
         station_id: curr.properties.station_id,

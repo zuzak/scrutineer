@@ -19,7 +19,7 @@ window.onload = function () {
   btn.href = '#entry'
   btn.className = ' button'
   btn.innerHTML = 'Insert current time'
-  btn.addEventListener('click', function (e) {
+  btn.addEventListener('click', function () {
     var now = new Date()
     document.getElementById('ingress').value = now.toTimeString()
   })

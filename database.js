@@ -6,10 +6,10 @@ var db = module.exports = mongoose.connection
 
 db.on('error', function (err) {
   console.error('DB PROBLEM', err)
-  throw err;
+  throw err
 })
 db.once('open', function () {
   console.log('Connected to database.')
-  var Station = require('./models/station.js')
-  var Council = require('./models/council.js')
+  require('./models/station.js')
+  require('./models/council.js')
 })

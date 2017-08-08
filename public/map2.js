@@ -15,7 +15,7 @@ function wget (url, cb) {
 
 window.onload = function () {
   console.log('shwmae ffrindiau')
-  var mymap = L.map('map').setView([52.4052, -4.0486], 13)
+  var mymap = L.map('map').setView([52.4052, -4.0486], 13) // Aberystwyth
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
@@ -35,6 +35,7 @@ window.onload = function () {
         console.log('Skipping marker ' + curr.id + ' (no coords)')
       }
     }
+    // noinspection JSPotentiallyInvalidConstructorUsage
     var group = new L.featureGroup(markers)
     group.addTo(mymap)
 

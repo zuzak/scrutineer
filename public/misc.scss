@@ -4,32 +4,24 @@ $party-list: $conservative, $labour, $snp, $plaid, $green, $ukip, $independent;
 .bar {
   height: 1em;
   background-size: 100%;
-  background-color: lime;
-  background-image: linear-gradient(
+  background: lime linear-gradient(
                   90deg,
                   $conservative,
-
                   $conservative 12.5%,
                   $labour 12.5%,
-
                   $labour 25%,
                   $snp 25%,
-
                   $snp 37.5%,
                   $liberal-democrat 37.5%,
-
                   $liberal-democrat 50%,
                   $plaid 50%,
-
                   $plaid 62.5%,
                   $green 62.5%,
-
                   $green 75%,
                   $ukip 75%,
-
                   $ukip 87.5%,
                   $independent 87.5%
-  )
+  );
 }
 
 header {

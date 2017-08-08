@@ -29,7 +29,7 @@ module.exports = function () {
         console.log('Importing ' + council.name)
         Council.update({
           council_id: council.council_id
-        }, council, { upsert: true}, function (err) {
+        }, council, {upsert: true}, function (err) {
           if (err) throw err
         })
       } else {
@@ -51,7 +51,6 @@ module.exports = function () {
       }, {
         slug: curr.slug,
         iso: curr.official_identifier,
-        slug: curr.slug,
         territory: curr.territory_code,
         humanName: curr.common_name
       }, {upsert: true}, function (err) {
