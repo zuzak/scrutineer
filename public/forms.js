@@ -57,11 +57,14 @@ function updateProgressBar () {
   var fieldNames = []
   for (var i = 0; i < inputs.length; i++) {
     console.log(inputs[i])
-    if (inputs[i].offsetHeight > 0 && ['radio', 'checkbox'].indexOf(inputs[i].type) !== -1) {
+    if (inputs[i].offsetHeight > 0) {
       if (fieldNames.indexOf(inputs[i].name) === -1) {
         fieldNames.push(inputs[i].name)
       }
-      if (inputs[i].checked) {
+      if (
+        inputs[i].checked ||
+        (['radio', 'checkbox'].indexOf(inputs[i].type) === -1 && inputs[i].value !== '')
+      ) {
         if (checkCount[inputs[i].name]) {
           checkCount[inputs[i].name]++
         } else {
