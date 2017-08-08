@@ -9,7 +9,6 @@ window.onload = function () {
       var hiddenFields = document.querySelectorAll('li[data-subquestion-of=' + e.target.name + ']')
       if (hiddenFields == null) return
       for (var i = 0; i < hiddenFields.length; i++) {
-        //hiddenFields[i].className = e.target.value === 'Yes' ? 'revealed' : 'hidden'
         hiddenFields[i].style.display = e.target.value === 'Yes' ? 'list-item' : 'none'
       }
     }
@@ -20,14 +19,13 @@ window.onload = function () {
   var timeButtons = ['ingress', 'egress']
   for (var i = 0; i < timeButtons.length; i++) {
     var c = timeButtons[i]
-    var parent = document.getElementById('js-'+c)
+    var parent = document.getElementById('js-' + c)
     var btn = document.createElement('a')
-    //btn.href = '#js-' + c
     btn.className = ' button'
     btn.innerHTML = 'Insert current time'
     btn.addEventListener('click', function (e) {
       var now = new Date()
-      e.target.parentElement.children[1].value = now.toTimeString().slice(0, 8) //FIXME
+      e.target.parentElement.children[1].value = now.toTimeString().slice(0, 8) // FIXME
                                                                 // ^^^^^^^^^^^^ this bit is so stupid
     })
     parent.appendChild(btn)

@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 var app = require('../app')
 var request = require('supertest')
 
@@ -9,7 +10,7 @@ describe('index', function () {
       .get('/')
       .expect(200, done)
   })
-  it('should render hello world', function () {
+  it('should render hello world', function (done) {
     request(app)
       .get('/')
       .end(function (err, res) {

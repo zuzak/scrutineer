@@ -42,19 +42,18 @@ window.onload = function () {
     mymap.fitBounds(group.getBounds())
     mymap.locate();
 
-    function onLocationFound(e) {
-      var radius = e.accuracy / 2;
+    function onLocationFound (e) {
+      var radius = e.accuracy / 2
 
-      /*var marker = L.marker(e.latlng).addTo(mymap)
+      /* var marker = L.marker(e.latlng).addTo(mymap)
         .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
       markers.push(marker)
       var group = new L.featureGroup(markers)
       mymap.fitBounds(group.getBounds())*/
-      L.circle(e.latlng, radius).addTo(mymap);
-
+      L.circle(e.latlng, radius).addTo(mymap)
     }
 
-    mymap.on('locationfound', onLocationFound);
+    mymap.on('locationfound', onLocationFound)
   })
 }
