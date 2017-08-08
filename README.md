@@ -4,9 +4,11 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Screenshots
-![Screenshot](https://i.imgur.com/605GZBsl.png)
+![Screenshot of Questionnaire](https://i.imgur.com/605GZBsl.png)
 
-![Screenshot](https://i.imgur.com/xVyafxal.jpg)
+![Screenshot of Council detail](https://i.imgur.com/xVyafxal.jpg)
+
+![Screenshot of Station detail](https://i.imgur.com/00cSkTpl.png)
 ## Setup
 
 ## Requirements
