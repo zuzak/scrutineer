@@ -72,4 +72,12 @@ function updateProgressBar () {
   }
   progbar.setAttribute('max', fieldNames.length.toString())
   progbar.setAttribute('value', Object.keys(checkCount).length.toString())
+
+  if (fieldNames.length <= Object.keys(checkCount).length) {
+    if (document.body.className.indexOf(' complete') === -1) {
+      document.body.className += ' complete'
+    } else {
+      document.body.className = document.body.className.replace(' complete', '')
+    }
+  }
 }

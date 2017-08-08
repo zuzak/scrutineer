@@ -127,6 +127,15 @@ progress {
   margin: 1.7em;
 }
 
+.complete {
+  .subheading {
+    background-color: $complete-colour;
+    color: lighten($complete-colour, 60%);
+  }
+  .station-id::after {
+    content: " (COMPLETE)";
+  }
+}
 
 .offline {
   .subheading {
@@ -134,6 +143,6 @@ progress {
     color: lighten($error-colour, 60%);
   }
   .station-id::after {
-    content: " (OFFLINE)"
+    content: " (OFFLINE)";
   }
 }
