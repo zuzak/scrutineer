@@ -1,12 +1,14 @@
 extends layout
 block append scripts
   script(src="/forms.js")
+block title
+  title= council.humanName + " Election Observation"
 block content
   h1
     span Election Observation
-    span.station-id= station.id
+    span.station-id= council.iso + '/' + station.station_id
   form
-    .sidebar
+    .sidebar#js-sidebar
       menu
         li: a(href="#approach") Approach to Polling Station
         li: a(href="#entry") Entrance to Polling Station
@@ -16,6 +18,7 @@ block content
         li: a(href="#info") Information
       +station(station)
     .mainbar.inspection
+      span#js-placeholder
       - i = 1
       section#approach
         h2 Approach to the Polling Place
@@ -66,7 +69,7 @@ block content
               li(value=i++): +scale("Distributing ballot paper", "distributing-ballot")
               li(value=i++): +scale("Prefolding ballot paper", "prefold")
               li(value=i++): +scale("Unique identifying mark shown to presiding officer", "uim")
-              li(value=i++): +scale("Secrecy upheld")
+              li(value=i++): +scale("Secrecy upheld", "secrecy")
       section#place
         h2 Polling Place
         ol
@@ -98,26 +101,31 @@ block content
       section#verdicts
         h2 Verdicts
         ol
-          li(value=i++): +closedq("Are you satisfied the right to universal, individual, and secret suffrage is being held?")
-          li(value=i++): +closedq("Are you satisfied the integrity of the vote is being upheld?")
+          li(value=i++): +closedq("Are you satisfied the right to universal, individual, and secret suffrage is being held?", "upheld-suffrage")
+          li(value=i++): +closedq("Are you satisfied the integrity of the vote is being upheld?", "upheld-integrity")
           li(value=i++): +closedq("Do you wish to add further details?", "further-details")
           li(value=i++, data-subquestion-of="further-details")
             h3 Additional comments
             textarea(name="comments")
+        li(value=i++)#js-egress
+          h3 What time did you leave the polling station?
+          input(type="time", name="egress", id="egress")
       section(id="info")
         h2 Information
-          h3 Code of Practice for Electoral Observers
-          ol
-            li Respect the laws of the United Kingdom, international human rights, and the authority of electoral bodies
-            li Maintain strict political impartiality at all times
-            li Maintain and aid in maintaining the secrecy of the ballot
-            li Do not obstruct election processes
-            li Provide appropriate identification
-            li Maintain accuracy of observations and professionalism in drawing conclusions
-            li Maintain proper personal behaviour
-            li Agree to follow the above guidance
-          h3 Contact details
-          +council(council)
+        .right: +council(council)
+        h3 Code of Practice for Electoral Observers
+        ol
+          li Respect the laws of the United Kingdom, international human rights, and the authority of electoral bodies
+          li Maintain strict political impartiality at all times
+          li Maintain and aid in maintaining the secrecy of the ballot
+          li Do not obstruct election processes
+          li Provide appropriate identification
+          li Maintain accuracy of observations and professionalism in drawing conclusions
+          li Maintain proper personal behaviour
+          li Agree to follow the above guidance
+        h3 Contact details
+
+          .right: +station(station)
         //ul.silent
           li: +closedq("Do you certify that the information you have recorded in this questionnaire is accurate?", "certify")
           li(data-subquestion-of="certify")

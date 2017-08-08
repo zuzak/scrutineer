@@ -9,19 +9,57 @@ window.onload = function () {
       var hiddenFields = document.querySelectorAll('li[data-subquestion-of=' + e.target.name + ']')
       if (hiddenFields == null) return
       for (var i = 0; i < hiddenFields.length; i++) {
-        hiddenFields[i].style.display = e.target.value === 'Yes' ? 'block' : 'none'
+        //hiddenFields[i].className = e.target.value === 'Yes' ? 'revealed' : 'hidden'
+        hiddenFields[i].style.display = e.target.value === 'Yes' ? 'list-item' : 'none'
       }
     }
+
+    updateProgressBar()
   })
 
-  var ingressparent = document.getElementById('js-ingress')
-  var btn = document.createElement('a')
-  btn.href = '#entry'
-  btn.className = ' button'
-  btn.innerHTML = 'Insert current time'
-  btn.addEventListener('click', function () {
-    var now = new Date()
-    document.getElementById('ingress').value = now.toTimeString()
-  })
-  ingressparent.appendChild(btn)
+  var timeButtons = ['ingress', 'egress']
+  for (var i = 0; i < timeButtons.length; i++) {
+    var c = timeButtons[i]
+    var parent = document.getElementById('js-'+c)
+    var btn = document.createElement('a')
+    btn.href = '#'
+    btn.className = ' button'
+    btn.innerHTML = 'Insert current time'
+    btn.addEventListener('click', function () {
+      var now = new Date()
+      document.getElementById(c).value = now.toTimeString()
+    })
+    parent.appendChild(btn)
+  }
+  updateProgressBar()
+}
+
+function updateProgressBar () {
+  var progbar = document.getElementById('js-progress')
+  if (progbar === null) {
+    progbar = document.createElement('progress')
+    progbar.id = 'js-progress'
+    document.getElementById('js-placeholder').appendChild(progbar)
+  }
+  var inputs = document.querySelectorAll('input')
+  var checkCount = {}
+  var fieldNames = []
+  for (var i = 0; i < inputs.length; i++) {
+    console.log(inputs[i].type)
+    if (/*inputs[i].offsetParent < 0*/ ['radio', 'checkbox'].indexOf(inputs[i].type) !== -1) {
+      if (fieldNames.indexOf(inputs[i].name) === -1) {
+        fieldNames.push(inputs[i].name)
+      }
+      if (inputs[i].checked) {
+        if (checkCount[inputs[i].name]) {
+          checkCount[inputs[i].name]++
+        } else {
+          checkCount[inputs[i].name] = 1
+        }
+      }
+    }
+  }
+  progbar.setAttribute('max', fieldNames.length.toString())
+  progbar.setAttribute('value', Object.keys(checkCount).length.toString())
+  console.log(fieldNames.length, Object.keys(checkCount).length)
 }

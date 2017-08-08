@@ -7,7 +7,7 @@ ul.options {
 
     input {
 
-      transform: scale(2);
+      //transform: scale(2);
     }
     label {
       height: 100%;
@@ -30,6 +30,16 @@ li[data-subquestion-of] {
   //background-color: $accent-colour;
   //border-left: 0.5em solid $accent-colour;
   //padding-left: 0.5em;
+
+  max-height: 99em;
+
+  transition-property: all;
+  transition-duration: 1s;
+}
+
+.revealed {
+  max-height: 99em !important;
+  overflow-y: visible !important;
 }
 
 ul.options.multi {
@@ -66,13 +76,13 @@ input[value="PC"] ~ label {
 input[value="UKIP"] ~ label {
   border-left: 0.2em solid $ukip;
 }
-
+/*
 section {
   display:none;
 }
 section:target {
   display: block;
-}
+}*/
 textarea {
   font-family: inherit;
   width: 100%;
@@ -94,4 +104,11 @@ input {
   margin-left: 1em;
   color: inherit;
   text-decoration: inherit;
+}
+
+progress {
+  width: 80%;
+  margin:auto;
+  display: block;
+  height: 1em;
 }

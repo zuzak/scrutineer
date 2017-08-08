@@ -1,6 +1,7 @@
 $sidebar-width: 33%;
 $mainbar-width: 66%;
 .sidebar {
+  display:none; /* FIXME */
   max-width: $sidebar-width;
   float: left;
 
@@ -30,7 +31,7 @@ $mainbar-width: 66%;
 
 }
 .mainbar {
-  max-width: $mainbar-width;
+  //max-width: $mainbar-width; FIXME
   display: inline-block;
     margin-top: 2em;
 
