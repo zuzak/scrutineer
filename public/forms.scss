@@ -2,9 +2,7 @@
 ul.options {
   li {
     display: inline-block;
-    padding: 1em;
-    margin: 0.2em;
-
+    padding: 0.2em;
     input {
 
       //transform: scale(2);
@@ -111,4 +109,11 @@ progress {
   margin:auto;
   display: block;
   min-height: 1em;
+}
+
+.inspection {
+  h3 {
+    margin-top: 5em;
+    margin-bottom: 2em;
+  }
 }
