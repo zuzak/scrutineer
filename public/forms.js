@@ -7,7 +7,7 @@ window.onload = function () {
   form.addEventListener('click', function (e) {
     if (e.target.tagName === 'INPUT') {
       var hiddenFields = document.querySelectorAll('li[data-subquestion-of=' + e.target.name + ']')
-      if (hiddenFields == null) return
+      if (hiddenFields === null) return
       for (var i = 0; i < hiddenFields.length; i++) {
         hiddenFields[i].style.display = e.target.value === 'Yes' ? 'list-item' : 'none'
       }
