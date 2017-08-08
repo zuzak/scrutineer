@@ -3,10 +3,15 @@ block append scripts
   script(src="/forms.js")
 block title
   title= council.humanName + " Election Observation"
+
+block subheading
+  - station_id = council.iso + '/' + station.station_id
+  span= station.address.split('\n')[0]
+  span.station-id= station_id
+  span#js-placeholder.right
 block content
   h1
     span Election Observation
-    span.station-id= council.iso + '/' + station.station_id
   form
     .sidebar#js-sidebar
       menu
@@ -18,7 +23,6 @@ block content
         li: a(href="#info") Information
       +station(station)
     .mainbar.inspection
-      span#js-placeholder
       - i = 1
       section#approach
         h2 Approach to the Polling Place
@@ -45,6 +49,9 @@ block content
       section#entry
         h2 Entry to Polling Station
         ol
+          li(value=i++)#js-ingress
+            h3 What time did you enter the polling station?
+            input(type="time", name="ingress", id="ingress")
           li(value=i++)
             h3 To what extent did the polling staff verify your observer's identification?
             ul.options
@@ -54,9 +61,6 @@ block content
               +checkbox("card-check", "handbook", "They consulted the polling station handbook")
               +checkbox("card-check", "phone", "They made a phone call (to the electoral body)")
               +checkbox("card-check", "refused", "They refused access to the polling station")
-          li(value=i++)#js-ingress
-            h3 What time did you enter the polling station?
-            input(type="time", name="ingress", id="ingress")
       section#procedure
         h2 Voting Procedure
         ol
@@ -123,9 +127,7 @@ block content
           li Maintain accuracy of observations and professionalism in drawing conclusions
           li Maintain proper personal behaviour
           li Agree to follow the above guidance
-        h3 Contact details
-
-          .right: +station(station)
+        .right: +station(station)
         //ul.silent
           li: +closedq("Do you certify that the information you have recorded in this questionnaire is accurate?", "certify")
           li(data-subquestion-of="certify")

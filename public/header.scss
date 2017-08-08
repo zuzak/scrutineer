@@ -1,0 +1,72 @@
+.bar {
+  height: 1em;
+  background-size: 100%;
+  background: lime linear-gradient(
+                  90deg,
+                  $conservative,
+                  $conservative 12.5%,
+                  $labour 12.5%,
+                  $labour 25%,
+                  $snp 25%,
+                  $snp 37.5%,
+                  $liberal-democrat 37.5%,
+                  $liberal-democrat 50%,
+                  $plaid 50%,
+                  $plaid 62.5%,
+                  $green 62.5%,
+                  $green 75%,
+                  $ukip 75%,
+                  $ukip 87.5%,
+                  $independent 87.5%
+  );
+}
+
+header {
+  background-color: $text-colour;
+  color: $body-colour;
+  .header, .footer {
+    max-width: $content-width;
+    margin: auto;
+    padding: 0.5em;
+    a {
+      color: inherit;
+      font-size: 2em;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.25em;
+    }
+    a:hover {
+      background-color: $body-colour;
+      color: $text-colour;
+    }
+  }
+  .header {
+    max-width: $content-width;
+    margin: auto;
+  }
+}
+
+.subheading {
+  background-color: $accent-colour;
+  padding: 0.5em;
+  font-size: 1em;
+
+  p {
+    max-width: $content-width;
+    margin: auto;
+  }
+}
+
+.stick {
+  .subheading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 0;
+  }
+  .bar {
+    margin-top: 2em;
+  }
+}

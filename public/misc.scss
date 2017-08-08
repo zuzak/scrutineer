@@ -1,51 +1,4 @@
 
-// parties elected to devolved/national/european parliaments in UK (not NI)
-$party-list: $conservative, $labour, $snp, $plaid, $green, $ukip, $independent;
-.bar {
-  height: 1em;
-  background-size: 100%;
-  background: lime linear-gradient(
-                  90deg,
-                  $conservative,
-                  $conservative 12.5%,
-                  $labour 12.5%,
-                  $labour 25%,
-                  $snp 25%,
-                  $snp 37.5%,
-                  $liberal-democrat 37.5%,
-                  $liberal-democrat 50%,
-                  $plaid 50%,
-                  $plaid 62.5%,
-                  $green 62.5%,
-                  $green 75%,
-                  $ukip 75%,
-                  $ukip 87.5%,
-                  $independent 87.5%
-  );
-}
-
-header {
-  background-color: $text-colour;
-  color: $body-colour;
-  .header, .footer {
-    max-width: $content-width;
-    margin: auto;
-    padding: 0.5em;
-    a {
-      color: inherit;
-      font-size: 2em;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.25em;
-    }
-    a:hover {
-      background-color: $body-colour;
-      color: $text-colour;
-    }
-  }
-}
-
 footer {
   padding-top: 2em;
   margin: 2em 0 1em;
@@ -59,10 +12,6 @@ footer {
   }
 }
 
-.header, .footer {
-  max-width: $content-width;
-  margin: auto;
-}
 body, html { margin: 0; font-family: $font-stack; font-size: 18px; font-weight: 200 !important}
 .main-container {
   margin:auto;
@@ -155,4 +104,11 @@ ul.silent {
 .station-id {
   padding-left: 1em;
   font-size: 0.7em;
+}
+.mainbar {
+  //max-width: $mainbar-width; FIXME
+  display: inline-block;
+  margin-top: 2em;
+
+  border-top: 1px solid $divider-colour;
 }

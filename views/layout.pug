@@ -5,16 +5,28 @@ html
   head
     link(rel="stylesheet", href="/index.css")
     block scripts
+    script.
+      document.addEventListener('scroll', function () {
+        var header = document.querySelector('header')
+        if (window.scrollY > header.clientHeight) {
+          if (document.body.className.indexOf(' stick') === -1) {
+            document.body.className += ' stick'
+          }
+        } else {
+          document.body.className = document.body.className.replace(' stick', '')
+        }
+      })
     block title
       title= title
-  body
+  body#js-body
     header
       .header
         a(href="/") Scrutineer
     .subheading
       p
-        span Walmington-on-Sea Parliamentary By-Election 2017
-        span.right Joe Bloggs
+        block subheading
+          span Walmington-on-Sea Parliamentary By-Election 2017
+          span.right Joe Bloggs
     .main-container
       .bar
       block content

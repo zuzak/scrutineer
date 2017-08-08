@@ -30,13 +30,7 @@ $mainbar-width: 66%;
   }
 
 }
-.mainbar {
-  //max-width: $mainbar-width; FIXME
-  display: inline-block;
-    margin-top: 2em;
 
-  border-top: 1px solid $divider-colour;
-}
 
 .status {
   background-color: lightsteelblue;
@@ -46,18 +40,4 @@ $mainbar-width: 66%;
   border-radius: 0.2em;
 
   margin: auto;
-}
-
-.subheading {
-  background-color: $accent-colour;
-  padding: 0.5em;
-  font-size: 1em;
-
-  p {
-    max-width: $content-width;
-    margin: auto;
-  }
-
-
-
 }

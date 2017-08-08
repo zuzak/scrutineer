@@ -22,12 +22,12 @@ window.onload = function () {
     var c = timeButtons[i]
     var parent = document.getElementById('js-'+c)
     var btn = document.createElement('a')
-    btn.href = '#'
+    //btn.href = '#js-' + c
     btn.className = ' button'
     btn.innerHTML = 'Insert current time'
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function (e) {
       var now = new Date()
-      document.getElementById(c).value = now.toTimeString()
+      e.target.parentElement.children[1].value = now.toTimeString() //FIXME
     })
     parent.appendChild(btn)
   }
@@ -45,8 +45,8 @@ function updateProgressBar () {
   var checkCount = {}
   var fieldNames = []
   for (var i = 0; i < inputs.length; i++) {
-    console.log(inputs[i].type)
-    if (/*inputs[i].offsetParent < 0*/ ['radio', 'checkbox'].indexOf(inputs[i].type) !== -1) {
+    console.log(inputs[i])
+    if (inputs[i].offsetHeight > 0 && ['radio', 'checkbox'].indexOf(inputs[i].type) !== -1) {
       if (fieldNames.indexOf(inputs[i].name) === -1) {
         fieldNames.push(inputs[i].name)
       }
@@ -61,5 +61,4 @@ function updateProgressBar () {
   }
   progbar.setAttribute('max', fieldNames.length.toString())
   progbar.setAttribute('value', Object.keys(checkCount).length.toString())
-  console.log(fieldNames.length, Object.keys(checkCount).length)
 }
