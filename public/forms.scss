@@ -106,10 +106,11 @@ input {
 }
 
 progress {
-  width: 80%;
+  width: 100%;
   margin:auto;
   display: block;
   min-height: 1em;
+  min-width: 5em;
 }
 
 .inspection {
@@ -124,4 +125,15 @@ progress {
 
 .multi .option {
   margin: 1.7em;
+}
+
+
+.offline {
+  .subheading {
+    background-color: $error-colour;
+    color: lighten($error-colour, 60%);
+  }
+  .station-id::after {
+    content: " (OFFLINE)"
+  }
 }

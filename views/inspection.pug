@@ -7,9 +7,9 @@ block title
 
 block subheading
   - station_id = council.iso + '/' + station.station_id
+  span#js-placeholder.right
   span= station.address.split('\n')[0]
   span.station-id= station_id
-  span#js-placeholder.right
 block content
   h1
     span Election Observation

@@ -27,11 +27,22 @@ window.onload = function () {
     btn.innerHTML = 'Insert current time'
     btn.addEventListener('click', function (e) {
       var now = new Date()
-      e.target.parentElement.children[1].value = now.toTimeString() //FIXME
+      e.target.parentElement.children[1].value = now.toTimeString().slice(0, 8) //FIXME
+                                                                // ^^^^^^^^^^^^ this bit is so stupid
     })
     parent.appendChild(btn)
   }
   updateProgressBar()
+
+  window.addEventListener('offline', function (e) {
+    if (document.body.className.indexOf(' offline') === -1) {
+      document.body.className += ' offline'
+    }
+  })
+
+  window.addEventListener('online', function () {
+    document.body.className = document.body.className.replace(' offline', '')
+  })
 }
 
 function updateProgressBar () {
