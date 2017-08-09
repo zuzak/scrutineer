@@ -8,7 +8,7 @@ block title
 block subheading
   - station_id = council.iso + '/' + station.station_id
   span#js-placeholder.right
-  span= station.address.split('\n')[0]
+  span= station.address.split('\n')[0].split(',')[0]
   span.station-id= station_id
 block content
   h1
