@@ -1,7 +1,8 @@
 extends layout
 block append scripts
-  include leaflet.pug
-  script(src='/map2.js')
+  if station.coords
+    include leaflet.pug
+    script(src='/map2.js')
 block content
   h1: +welsh("Polling station", "Gorsaf bleidleiso")
   h2: +welsh("Location", "Lleoliad")
@@ -15,5 +16,6 @@ block content
   h2: +welsh("Responsible authority", "Awdurdod cyfrifiol")
   +council(council)
   .clear
-  h2: +welsh("Map", "Map")
-  div.map#map
+  if station.coords
+    h2: +welsh("Map", "Map")
+    div.map#map
