@@ -4,7 +4,6 @@ block append scripts
   script(src='/map2.js')
 block content
   h1: +welsh("Councils", "Cynghorau")
-  p (These are Government Statistical Service codes)
   ol.councils
     for council in councils.sort()
       li

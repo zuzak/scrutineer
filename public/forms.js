@@ -1,7 +1,7 @@
 window.onload = function () {
   var stylesheet = document.createElement('style')
   document.head.appendChild(stylesheet)
-  stylesheet.sheet.insertRule('li[data-subquestion-of] { display: none }', 0)
+
 
   var form = document.querySelector('form')
   form.addEventListener('click', function (e) {
@@ -54,7 +54,6 @@ function updateProgressBar () {
   var checkCount = {}
   var fieldNames = []
   for (var i = 0; i < inputs.length; i++) {
-    console.log(inputs[i])
     if (inputs[i].offsetHeight > 0) {
       if (fieldNames.indexOf(inputs[i].name) === -1) {
         fieldNames.push(inputs[i].name)

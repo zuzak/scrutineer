@@ -16,7 +16,10 @@ body, html { margin: 0; font-family: $font-stack; font-size: 1.5em;}
 
 @media (min-width:1025px) {
   body, html {
-    font-size: 1.2em;
+    font-size: 0.9em;
+  }
+  .councils {
+    columns: 4 !important;
   }
 }
 .main-container {
@@ -109,10 +112,4 @@ ul.silent {
 .station-id {
   padding-left: 1em;
   font-size: 0.7em;
-}
-.mainbar {
-  //max-width: $mainbar-width; FIXME
-  display: inline-block;
-
-  //border-top: 1px solid $divider-colour;
 }
