@@ -24,23 +24,29 @@
 header {
   background-color: $text-colour;
   color: $body-colour;
+
+  a {
+    color: inherit;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.25em;
+  }
+  a:hover {
+    background-color: $body-colour;
+    color: $text-colour;
+  }
+}
+
   .header, .footer {
     max-width: $content-width;
     margin: auto;
     padding: 0.5em;
-    a {
-      color: inherit;
-      font-size: 2em;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.25em;
-    }
-    a:hover {
-      background-color: $body-colour;
-      color: $text-colour;
-    }
+
   }
+
+header {
   .header {
     max-width: $content-width;
     margin: auto;

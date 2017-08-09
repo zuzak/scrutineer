@@ -15,7 +15,9 @@
   },
   "homepage": "https://github.com/zuzak/scrutineer#readme",
   "dependencies": {
+    "credits-to": "0.0.2",
     "express": "^4.15.3",
+    "githash": "0.0.4",
     "mongoose": "^4.11.5",
     "morgan": "^1.8.2",
     "node-sass-middleware": "^0.11.0",
