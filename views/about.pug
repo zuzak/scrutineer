@@ -1,0 +1,38 @@
+extends layout
+block content
+  h1 About this project
+  p
+    span The code for this website is available on&nbsp;
+    a(href='//github.com/zuzak/scrutineer') GitHub
+    span .
+  if hash
+    h2 Git information
+    p
+      span The current Git version is&nbsp;
+      code.code= hash
+  h2 Third-party credits
+  p
+    span The election inspection questionnaire is based partly on designs by:
+    ul
+      li
+        span the&nbsp;
+        abbr(title="Organization for Security and Co-operation in Europe")
+          a(href="osce.org") OSCE
+        span 's&nbsp;
+        a(href="osce.org/odihr") Office for Democratic Institutions and Human Rights
+      li
+        span the&nbsp;
+        a(href="//europa.eu") European Union
+        span 's&nbsp;
+        a(href="http://eeas.europa.eu/archives/eueom/missions/index_en.htm") Election Observation Missions
+      li
+        span the&nbsp;
+        a(href="http://www.needsproject.eu/") Network for Enhanced Electoral and Democratic Support
+  p
+    span The election and polling station data was compiled by&nbsp;
+    a(href="//democracyclub.org.uk") Democracy Club
+    span .
+  p
+    span The colours of the main parties of Great Britain were compiled by&nbsp;
+    a(href="http://blog.richardallen.co.uk/uk-political-party-web-colours/") Richard Allen
+    span .
