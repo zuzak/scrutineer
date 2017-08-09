@@ -8,7 +8,7 @@ block content
   ol.councils
     for council in councils.sort()
       li
-        a(href='/stations/'+council)= council
+        a(href='/stations/'+council.slug)= council.humanName
     else
       li
         span(lang="en").error No councils found!

@@ -44,9 +44,12 @@ app.get('/stations/:council', function (req, res, next) {
   })
 })
 
-app.get('/councils', function (req, res) {
+app.get('/councils', function (req, res, next) {
   Station.find().distinct('council_id', function (err, ids) {
-    if (err) throw err
-    res.render('councils.pug', {councils: ids})
+    if (err) return next(err)
+    Council.find({'council_id': { $in: ids}}, function (err, councils) {
+      if (err) return next(err)
+      res.render('councils.pug', {councils})
+    })
   })
 })
