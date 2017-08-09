@@ -19,7 +19,7 @@ mixin address(place)
     if place.email
       li.email= place.email
     if place.phone
-      li.tel= place.phone
+      li.tel: a(href='tel:'+place.phone)= place.phone
 
 mixin council(council)
   .addresslabel
