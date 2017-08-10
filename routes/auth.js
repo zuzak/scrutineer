@@ -6,6 +6,7 @@ var passport = require('passport')
 var User = require('../models/user.js')
 
 app.get('/create-account', function (req, res) {
+  if (!req.connection.encrypted) res.locals.message = 'Your connection to us is not secure.'
   res.render('create-account.pug')
 })
 app.post('/create-account', function (req, res, next) {
@@ -52,6 +53,7 @@ app.get('/log-out', function (req, res) {
 })
 
 app.get('/log-in', function (req, res) {
+  if (!req.connection.encrypted) res.locals.message = 'Your connection to us is not secure.'
   res.render('log-in.pug')
 })
 

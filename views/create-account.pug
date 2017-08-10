@@ -2,6 +2,8 @@ extends layout
 block content
   h1 Create account
   form(method="POST")
+    if message
+      p.error= message
     - if (!errors) errors = {}
     ul.silent
       li
