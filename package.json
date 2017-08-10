@@ -15,15 +15,25 @@
   },
   "homepage": "https://github.com/zuzak/scrutineer#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "common-password": "^0.1.2",
+    "cookie-parser": "^1.4.3",
     "credits-to": "0.0.2",
     "express": "^4.15.3",
+    "express-session": "^1.15.5",
     "githash": "0.0.4",
+    "isemail": "^3.0.0",
+    "leo-profanity": "^1.2.3",
     "mongoose": "^4.11.5",
+    "mongoose-password-plugin": "^0.1.2",
     "morgan": "^1.8.2",
     "node-sass-middleware": "^0.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "progressbar": "^1.1.1",
     "pug": "^2.0.0-rc.2",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "the-big-username-blacklist": "^1.5.1"
   },
   "devDependencies": {
     "mocha": "^3.4.2",

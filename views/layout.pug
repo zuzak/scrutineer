@@ -26,7 +26,12 @@ html
       p
         block subheading
           span Walmington-on-Sea Parliamentary By-Election 2017
-          span.right Joe Bloggs
+          if user
+            a(href='/log-out').right Log out
+            span.right= ' ' + user.username
+          else
+            a(href='/create-account').right Create account
+            a(href='/log-in').right Log in
     .main-container
       .bar
       block content

@@ -1,0 +1,17 @@
+extends layout
+block content
+  h1 Registration successful
+  p You're now on our system. We hold the following information about you:
+
+  table
+    tr
+      th User name
+      td= user.username
+    tr
+      th Password
+      td: emph [Not shown]
+    tr
+        th Email address
+        td= user.email
+
+  a(href='/') Return to home page

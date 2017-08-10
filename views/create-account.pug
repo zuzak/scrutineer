@@ -1,0 +1,26 @@
+extends layout
+block content
+  h1 Create account
+  form(method="POST")
+    - if (!errors) errors = {}
+    ul.silent
+      li
+        h2: label(for="username") User name
+        if errors.username
+          p.error= errors.username
+        p We use this to publicly attribute any content you create, and you use this to log in.
+        input(name="username", required)#name
+      li
+        h2: label(for="email") Email address
+        if errors.email
+          p.error= errors.email
+        p We'll  use this to contact you if you forget your password.
+        input(type="email", name="email", required)#email
+      li
+        h2: label(for="password") Password
+        if errors.password
+          p.error= errors.password
+        p You'll use this to log in.
+        input(type="password", name="password", minlength=8, required)#password
+      li
+        input(type="submit", value="Create account").button
