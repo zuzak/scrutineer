@@ -29,3 +29,9 @@ $mainbar-width: 66%;
     }
   }
 }
+
+body, html { margin: 0; font-family: $font-stack; font-size: $base-size;}
+
+h3  {
+  max-width: 66%;
+}
