@@ -1,17 +1,21 @@
 extends ../layout
 block content
-  h1 Registration successful
-  p You're now on our system. We hold the following information about you:
-
+  - data = data ? data : user
+  h1= h1 ? h1 : "About you"
+  p We hold the following information about you:
   table
     tr
       th User name
-      td= user.username
+      td= data.username
     tr
       th Password
       td: emph [Not shown]
     tr
         th Email address
-        td= user.email
+        td= data.email
+
+  p If any of this is wrong, you can&nbsp;
+    a(href='/amend-details') amend your details
+    span .
 
   a(href='/') Return to home page

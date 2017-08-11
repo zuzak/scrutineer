@@ -9,30 +9,8 @@ app.get('/create-account', function (req, res) {
   res.render('users/create-account.pug')
 })
 app.post('/create-account', function (req, res, next) {
-  var errors = {}
-
-  if (req.body.password.length < 8) {
-    errors.password = 'Your password must be at least eight characters long.'
-  }
-
-  if (isCommonPassword(req.body.password)) {
-    errors.password = 'Your chosen password is too easy to guess.'
-  }
-
-  if (!isValidEmail(req.body.email)) {
-    errors.email = 'Your email address doesn\'t look right.'
-  }
-
-  if (!req.body.username) {
-    errors.username = 'You need to enter a username.'
-  }
-
-  if (isBadUsername(req.body.username)) {
-    errors.username = 'Please pick a different user name.'
-  }
-
-  console.log(errors, Object.keys(errors).length)
-  if (Object.keys(errors).length > 0) {
+  var errors = validateAccount(req.body)
+  if (errors.hasErrors) {
     return res.render('users/create-account.pug', {errors})
   }
 
@@ -45,6 +23,47 @@ app.post('/create-account', function (req, res, next) {
     })
   })
 })
+
+function validateAccount (data, ignorePassword) {
+  var errors = {
+    password: [],
+    username: [],
+    email: []
+  }
+  if (!ignorePassword) {
+    if (data.password) {
+      errors.password = []
+      if (data.password.length < 8) {
+        errors.password.push('Your password must be at least eight characters long.')
+      }
+
+      if (isCommonPassword(data.password)) {
+        errors.password.push('Your chosen password is too easy to guess.')
+      }
+    } else {
+      errors.password.push('You must set a password.')
+    }
+  }
+
+  if (data.email) {
+    if (!isValidEmail(data.email)) {
+      errors.email.push('Your email address doesn\'t look right.')
+    }
+  } else {
+    errors.email.push('You must specify an email address.')
+  }
+
+  if (data.username) {
+    if (isBadUsername(data.username)) {
+      errors.username.push('Your chosen username might be confusing to other users. Please pick another.')
+    }
+  } else {
+    errors.username.push('You need to enter a username.')
+  }
+  errors.hasErrors = (errors.password.length + errors.username.length + errors.email.length) > 0
+
+  return errors
+}
 
 app.get('/log-out', function (req, res) {
   req.logout()
@@ -70,7 +89,36 @@ function isBadUsername (username) {
   return false
 }
 
+// this method needs to be above any proper views!
 app.all('*', function (req, res, next) {
   if (req.user) res.locals.user = req.user
   return next()
+})
+
+app.get('/amend-details', function (req, res) {
+  if (!req.user) return res.redirect('/log-in')
+  res.render('users/amend-details.pug')
+})
+
+app.post('/amend-details', function (req, res, next) {
+  if (!req.user) return res.redirect('/log-in')
+  var errors = validateAccount(req.body, ['password'])
+  if (errors.hasErrors) {
+    return res.render('users/amend-details.pug', {errors})
+  }
+
+  User.update({
+    email: req.user.email,
+    username: req.user.username
+  }, {
+    email: req.body.email,
+    username: req.body.username
+  }, function (err, newUser) {
+    if (err) return next(err)
+    return res.redirect('/about-you')
+  })
+})
+
+app.get('/about-you', function (req, res) {
+  res.render('users/registration-successful.pug')
 })

@@ -1,0 +1,24 @@
+extends ../layout
+block content
+  h1 Amend your details
+  p You can change the information we hold about you by changing them below.
+  pre.code= JSON.stringify(errors, null, 4)
+  form(method="POST")
+    - if (!errors) errors = {username: [], email: []}
+    ul.silent
+      li
+        h2: label(for="username") User name
+        for e in errors.username
+          p.error= e
+        else
+          p We use this to publicly attribute any content you create, and you use this to log in.
+        input(name="username", required,value=user.username)#name
+      li
+        h2: label(for="email") Email address
+        for e in errors.email
+          p.error= e
+        else
+           p We'll use this to contact you if you forget your password.
+        input(type="email", name="email", required, value=user.email)#email
+      li
+        p: input(type="submit", value="Amend details").button
