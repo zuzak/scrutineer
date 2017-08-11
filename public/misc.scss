@@ -10,6 +10,8 @@ footer {
   a {
     margin: 0.5em
   }
+
+  clear: both;
 }
 
 
@@ -74,7 +76,7 @@ a.station:hover {
 }
 
 h1 {
-  text-transform: uppercase;
+  //text-transform: uppercase;
 }
 
 .clear { clear:both;}

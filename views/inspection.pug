@@ -11,24 +11,23 @@ block subheading
   span= station.address.split('\n')[0].split(',')[0]
   span.station-id= station_id
 block content
-  h1
-    span Election Observation
-  form.inspection
-    section(id="info")
-      h2 Information
-      .right.clear-right: +council(council)
-      .right.clear-right: +station(station)
-      h3 Code of Practice for Electoral Observers
-      ol
-        li Respect the laws of the United Kingdom, international human rights, and the authority of electoral bodies
-        li Maintain strict political impartiality at all times
-        li Maintain and aid in maintaining the secrecy of the ballot
-        li Do not obstruct election processes
-        li Provide appropriate identification
-        li Maintain accuracy of observations and professionalism in drawing conclusions
-        li Maintain proper personal behaviour
-        li Agree to follow the above guidance
+  h1 Election Observation
+
+  details(open).preamble
+    summary Station information
+    p You are about to observe the following polling station:
+    +station(station)
+    p If this is incorrect, you can&nbsp;
+      a(href='/station/'+council.slug) go back to the list of stations
+      span .
+
+    p.
+      If there are problems with this polling station you feel should be addressed,
+      you should contact #{council.name}:
+    +council(council)
+
     - i = 1
+  form.inspection
     section#approach.clear
       h2 Approach to the Polling Place
       ol
