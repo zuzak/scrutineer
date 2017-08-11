@@ -120,5 +120,6 @@ app.post('/amend-details', function (req, res, next) {
 })
 
 app.get('/about-you', function (req, res) {
+  if (!req.user) return res.redirect('/log-in')
   res.render('users/registration-successful.pug')
 })
