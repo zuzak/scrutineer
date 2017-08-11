@@ -6,7 +6,7 @@ var passport = require('passport')
 var User = require('../models/user.js')
 
 app.get('/create-account', function (req, res) {
-  res.render('create-account.pug')
+  res.render('users/create-account.pug')
 })
 app.post('/create-account', function (req, res, next) {
   var errors = {}
@@ -33,7 +33,7 @@ app.post('/create-account', function (req, res, next) {
 
   console.log(errors, Object.keys(errors).length)
   if (Object.keys(errors).length > 0) {
-    return res.render('create-account.pug', {errors})
+    return res.render('users/create-account.pug', {errors})
   }
 
   var user = new User(req.body)
@@ -41,7 +41,7 @@ app.post('/create-account', function (req, res, next) {
     if (err) return next(err)
     req.login(user, function (err) {
       if (err) { return next(err) }
-      return res.render('registration-successful.pug', {user})
+      return res.render('users/registration-successful.pug', {user})
     })
   })
 })
@@ -52,7 +52,7 @@ app.get('/log-out', function (req, res) {
 })
 
 app.get('/log-in', function (req, res) {
-  res.render('log-in.pug')
+  res.render('users/log-in.pug')
 })
 
 app.post('/log-in',
@@ -71,7 +71,6 @@ function isBadUsername (username) {
 }
 
 app.all('*', function (req, res, next) {
-  console.log('wayhey', req.user)
   if (req.user) res.locals.user = req.user
   return next()
 })
