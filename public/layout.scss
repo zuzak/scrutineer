@@ -35,3 +35,6 @@ body, html { margin: 0; font-family: $font-stack; font-size: $base-size;}
 h1, h2, h3, p {
   max-width: 66%;
 }
+table {
+  max-width: 75%;
+}

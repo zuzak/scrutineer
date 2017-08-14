@@ -10,7 +10,8 @@ block content
     p
       span The current Git version is&nbsp;
       code.code= hash
-  h2 Third-party content
+  h2 Credits
+  h3 Third-party content
   p
     span The election inspection questionnaire is based partly on designs by:
     ul
@@ -28,30 +29,55 @@ block content
       li
         span the&nbsp;
         a(href="http://www.needsproject.eu/") Network for Enhanced Electoral and Democratic Support
-  p
-    span The election and polling station data was compiled by&nbsp;
-    a(href="//democracyclub.org.uk") Democracy Club
-    span .
-  p
-    span The colours of the main parties of Great Britain were compiled by&nbsp;
-    a(href="http://blog.richardallen.co.uk/uk-political-party-web-colours/") Richard Allen
-    span .
-  h2 NodeJS modules
-  table
-    tr
-      th Name
-      th Description
-      th Version
-      th Licence
-    for module in Object.keys(deps.npm)
+    p
+      span The election and polling station data was compiled by&nbsp;
+      a(href="//democracyclub.org.uk") Democracy Club
+      span .
+    p
+      span The colours of the main parties of Great Britain were compiled by&nbsp;
+      a(href="http://blog.richardallen.co.uk/uk-political-party-web-colours/") Richard Allen
+      span .
+    h3 NodeJS modules
+    p.
+      The software used to power this website uses in part software written by other people.
+      This is a list of NodeJS modules used to make is website work the way it should.
+    table
       tr
-        td: a(href='https://www.npmjs.com/package/' + deps.npm[module].name)= deps.npm[module].name
-        td= deps.npm[module].description
-        td= deps.npm[module].versions[0]
-        td
-          for licence in deps.npm[module].licenses
-            a(href='https://opensource.org/licenses/'+licence)= licence
-        if coreDeps.indexOf(module) > -1
-          td (core)
-        else
-          td (indirect)
+        th Name
+        th Description
+        th Version
+        th Licence
+      for module in Object.keys(deps.npm)
+        tr
+          td: a(href='https://www.npmjs.com/package/' + deps.npm[module].name)= deps.npm[module].name
+          td= deps.npm[module].description
+          td= deps.npm[module].versions[0]
+          td
+            for licence in deps.npm[module].licenses
+              a(href='https://opensource.org/licenses/'+licence)= licence
+          if coreDeps.indexOf(module) > -1
+            td (core)
+          else
+            td (indirect)
+    h2 Privacy
+    h3 Cookies
+    p We uses cookies to make sure the website works the way it should.
+    table
+      tr
+        th Cookie
+        th Reason
+        th Expires
+      tr
+        td: code connect.sid
+        td so we can send you the right content when you go to a new page
+        td when you close your browser
+    h3 Data
+    p.
+      When you submit a form on this website, you are giving us data.
+      We collect the following information:
+    ul
+      li your email address, username and password when you sign up
+    p.
+      We use this information to:
+    ul
+      li let you to log in to the website
