@@ -9,5 +9,4 @@ app.get('/about', function (req, res, next) {
     if (err) next(err)
     res.render('about.pug', {deps, coreDeps, hash: gitHash()})
   })
-  res.render('about.pug', {title: 'helo'})
 })
