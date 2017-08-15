@@ -10,6 +10,8 @@
 ![Screenshot of Council detail](https://i.imgur.com/xVyafxal.jpg)
 
 ![Screenshot of Station detail](https://i.imgur.com/00cSkTpl.png)
+
+![Screenshot of account creations](https://i.imgur.com/Yg6gnecl.png)
 ## Setup
 
 ## Requirements
