@@ -1,15 +1,43 @@
 extends layout
 block content
   h1 About this project
+  h2 Privacy
+  h3#cookies Cookies
+  p.twothirds.
+     We uses cookies to make sure the website works the way it should.
+     These are small files we place on your computer.
+     We set the following cookies:
+  table
+    tr
+      th Cookie
+      th Purpose
+      th Expires
+    tr
+      td: code connect.sid
+      td a unique number we use to identify your session, so we show you appropriate content
+      td when you close your browser
+    tr
+      td: code seen-cookie
+      td lets us know you've seen our cookie banner, so we know not to show it again
+      td after three months
+  h3 Data
+  p.twothirds.
+    When you submit a form on this website, you are giving us data, such as:
+  ul
+    li your email address, username and password when you sign up
+  p.
+    We use this information to:
+  ul
+    li let you to log in to the website
   p
     span The code for this website is available on&nbsp;
     a(href='//github.com/zuzak/scrutineer') GitHub
     span .
   if hash
-    h2 Git information
+    h2 Version information
     p
       span The current Git version is&nbsp;
-      code.code= hash
+      code.code: a(href='https://github.com/zuzak/scrutineer/commit/'+hash)= hash
   h2 Credits
   h3 Third-party content
   p
