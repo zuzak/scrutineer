@@ -1,0 +1,8 @@
+extends ../layout
+block content
+  h1 Do you already have an account?
+  form(method="POST")
+    ul.multi.options
+      li: +radio("has-account", "Yes", "Yes, I want to sign in")
+      li: +radio("has-account", "No", "No, I want to create an account")
+    input(type="submit",value="Continue").button

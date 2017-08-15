@@ -74,6 +74,19 @@ app.get('/log-in', function (req, res) {
   res.render('users/log-in.pug')
 })
 
+app.all('/access-account', function (req, res) {
+  var hasAccount = req.body['has-account']
+  if (hasAccount) {
+    if (hasAccount === 'Yes') {
+      return res.redirect('/log-in')
+    }
+    if (hasAccount === 'No') {
+      return res.redirect('/create-account')
+    }
+  }
+  return res.render('users/log-in-create-account.pug')
+})
+
 app.post('/log-in',
   passport.authenticate('local'),
   function (req, res) {
