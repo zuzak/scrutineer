@@ -10,7 +10,9 @@ ul.options {
     label {
       height: 100%;
       padding: 1em;
+
       background-color: $label-background-colour;
+      display: inline-block;
 
       span {
         padding-left: 1em;
@@ -120,10 +122,6 @@ progress {
     margin-top: 2em;
     margin-bottom: 2em;
   }
-}
-
-.multi .option {
-  margin: 1.7em;
 }
 
 .complete {

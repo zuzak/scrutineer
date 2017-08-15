@@ -32,9 +32,32 @@ $mainbar-width: 66%;
 
 body, html { margin: 0; font-family: $font-stack; font-size: $base-size;}
 
-h1, h2, h3, p {
+.twothirds {
   max-width: 66%;
 }
 table {
   max-width: 75%;
+}
+
+.leftbar {
+  width: 30%;
+  height: 100%;
+  display: table-cell;
+
+  ul {
+    position: sticky;
+    li {
+      padding: 0.5em;
+    }
+    top: 4em;
+  }
+}
+.rightbar {
+  display: table-cell;
+  width: 70%;
+}
+.barred {
+  display: table;
+  border-top: 1px solid $divider-colour;
+  margin-top: 2em;
 }
