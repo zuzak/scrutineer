@@ -1,4 +1,6 @@
 extends ../layout
+block title
+  title= h1 ? h1: "About you"
 block content
   - data = data ? data : user
   h1= h1 ? h1 : "About you"

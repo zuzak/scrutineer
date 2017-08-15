@@ -1,5 +1,5 @@
 var app = require('../app')
 
 app.get('/', function (req, res) {
-  res.render('index.pug', {title: 'helo'})
+  res.render('index.pug', {title: 'Scrutineer'})
 })
