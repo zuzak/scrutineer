@@ -118,3 +118,11 @@ ul.silent {
   td {
     padding: 0.5em;
   }
+
+
+.cookie-message {
+  width: 100%;
+  background-color: coral;
+  margin: 0 auto;
+  padding: 1em ($content-width / 2);
+}

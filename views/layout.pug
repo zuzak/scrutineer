@@ -5,23 +5,23 @@ html
   head
     link(rel="stylesheet", href="/index.css")
     block scripts
-    script.
-      document.addEventListener('scroll', function () {
-        var header = document.querySelector('header')
-        if (window.scrollY > header.clientHeight) {
-          if (document.body.className.indexOf(' stick') === -1) {
-            document.body.className += ' stick'
+      script.
+        document.addEventListener('scroll', function () {
+          var header = document.querySelector('header')
+          if (window.scrollY > header.clientHeight) {
+            if (document.body.className.indexOf(' stick') === -1) {
+              document.body.className += ' stick'
+            }
+          } else {
+            document.body.className = document.body.className.replace(' stick', '')
           }
-        } else {
-          document.body.className = document.body.className.replace(' stick', '')
-        }
-      })
+        })
     block title
       title= title
   body#js-body
     header
       .header
-        a(href="/") Scrutineer
+        a.logo(href="/") Scrutineer
     .subheading
       p
         block subheading
@@ -38,3 +38,12 @@ html
     footer
       .footer
         a(href='/about') About this website
+    script.
+      if (document.cookie.indexOf('seen-cookie') == -1) {
+        document.cookie = 'seen-cookie=true;max-age=7890000' // 3 mo
+        var body = document.querySelector('header')
+        var p = document.createElement('p')
+        p.innerHTML = 'We use cookies to make sure this website works correctly.<br>By using this website you agree to our use of cookies.<br>You can <a href="/about#cookies">find out more about how we use cookies</a>.'
+        p.className = 'cookie-message'
+        body.prepend(p)
+      }

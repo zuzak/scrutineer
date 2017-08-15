@@ -25,7 +25,7 @@ header {
   background-color: $text-colour;
   color: $body-colour;
 
-  a {
+  .logo {
     color: inherit;
     font-size: 2em;
     font-weight: bold;
@@ -33,7 +33,7 @@ header {
     text-decoration: none;
     padding: 0.25em;
   }
-  a:hover {
+  a.logo:hover {
     background-color: $body-colour;
     color: $text-colour;
   }
