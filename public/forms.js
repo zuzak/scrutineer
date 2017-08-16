@@ -1,6 +1,7 @@
 window.onload = function () {
   var stylesheet = document.createElement('style')
   document.head.appendChild(stylesheet)
+  stylesheet.sheet.insertRule('li[data-subquestion-of] { display: none; }', 0)
 
   var form = document.querySelector('form')
   form.addEventListener('click', function (e) {
