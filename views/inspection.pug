@@ -76,7 +76,8 @@ block content
                 +checkbox("card-check", "verbal", "They checked verbally")
                 +checkbox("card-check", "card", "They looked at the identification card")
                 +checkbox("card-check", "handbook", "They consulted the polling station handbook")
-                +checkbox("card-check", "phone", "They made a phone call (to the electoral body)")
+                +checkbox("card-check", "phone", "They made a phone call (to " + council.humanName + " Council)")
+                +checkbox("card-check", "phone2", "They made a phone call (to someone else)")
                 +checkbox("card-check", "refused", "They refused access to the polling station")
         section#procedure
           h2 Voting Procedure
