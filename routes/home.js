@@ -1,5 +1,14 @@
 var app = require('../app')
-
-app.get('/', function (req, res) {
-  res.render('index.pug', {title: 'Scrutineer'})
+var Station = require('../models/station.js')
+app.get('/', function (req, res, next) {
+  Station.count({}, function (err, stationCount) {
+    if (err) next(err)
+    res.render('index.pug', {
+      title: 'Scrutineer',
+      data: [{
+        caption: 'polling stations in database',
+        value: stationCount
+      }]
+    })
+  })
 })

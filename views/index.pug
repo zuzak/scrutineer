@@ -1,5 +1,8 @@
 extends layout
 block content
+  ul.silent.right
+    for datum in data
+      li: +data(datum.value.toLocaleString('en-GB'), datum.caption)
   h1 What would you like to do?
   ul
     if user

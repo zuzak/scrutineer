@@ -127,3 +127,15 @@ ul.silent {
   margin: 0 auto;
   padding: 1em ($content-width / 2);
 }
+
+.data {
+  line-height: 1.7em;
+  .data-big {
+    display: block;
+    font-size: 2em;
+  }
+  .data-small {
+    display: block;
+    font-size: 0.7em;
+  }
+}
