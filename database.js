@@ -12,4 +12,5 @@ db.once('open', function () {
   console.log('Connected to database.')
   require('./models/station.js')
   require('./models/council.js')
+  require('./models/commission.js')
 })

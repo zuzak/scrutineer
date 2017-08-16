@@ -133,3 +133,16 @@ block content
             li: +closedq("Do you certify that the information you have recorded in this questionnaire is accurate?", "certify")
             li(data-subquestion-of="certify")
                input(type="submit",value="Save questionnaire").button
+  section#problems
+    h2 Problems
+    p.twothirds.
+      If you are concerned or think that an election-related crime may have been committed
+      you should first raise the matter with the local authority:
+    +council(council)
+    p.twothirds.
+      Additionally, you can contact the Electoral Commission at:
+    div
+      .addresslabel.table
+        for commission in commissions
+          .cell
+            +address(commission)

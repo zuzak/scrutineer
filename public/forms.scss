@@ -52,20 +52,41 @@ input:checked ~ label {
   outline: 3px solid $focus-colour;
 }
 
-input[value="CON"] ~ label {
-  border-left: 0.2em solid $conservative;
+.party {
+  border-left: 0.5em solid;
+  border-color: pink;
+}
+.party-con {
+  border-color: $conservative;
+}
+.party-ld {
+  border-color: $liberal-democrat;
+}
+.party-lab {
+  border-color: $labour;
+}
+.party-grn {
+  border-color: $green;
+}
+.party-pc {
+  border-color: $plaid;
+}
+.party-ukip {
+  border-color: $ukip;
+}
+.party-ind {
+  border-color: $independent;
+}
+.party-snp {
+  border-color: $snp;
 }
 
-input[value="LD"] ~ label {
-  border-left: 0.2em solid $liberal-democrat;
-}
-
-input[value="LAB"] ~ label {
-  border-left: 0.2em solid $labour;
-}
-
-input[value="GRN"] ~ label {
-  border-left: 0.2em solid $green;
+.table {
+  display: table;
+  .cell {
+    display: table-cell;
+    padding-right: 1em;
+  }
 }
 
 input[value="PC"] ~ label {

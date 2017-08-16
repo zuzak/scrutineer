@@ -58,6 +58,7 @@ header {
   padding: 0.5em;
   font-size: 1em;
   min-height: 1.5em;
+  z-index: 999;
 
   p {
     max-width: $content-width;
