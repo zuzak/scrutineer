@@ -54,7 +54,8 @@ var loadStations = function () {
         council_id: curr.properties.council.split('/').filter(function (x) { return x }).pop(), // E080000021
         postcode: curr.properties.postcode, // NE3 3QT
         address: curr.properties.address, // Kenton Customer Service Centre and Library\nThe Kenton Centre\nHillsview Avenue\nNewcastle upon Tyne
-        coords: curr.geometry ? curr.geometry.coordinates : null // [ -1.6532922869565219, 55.00431079565217 ]
+        coords: curr.geometry ? curr.geometry.coordinates : null, // [ -1.6532922869565219, 55.00431079565217 ]
+        humanName: curr.properties.address.split('\n')[0].split(',')[0]
       }
 
       Station.update({

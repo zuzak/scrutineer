@@ -2,6 +2,7 @@ var app = require('../app.js')
 var isCommonPassword = require('common-password')
 var isValidEmail = require('isemail').validate
 var passport = require('passport')
+var antispoof = require('antispoof') // our module
 
 var User = require('../models/user.js')
 
@@ -99,7 +100,7 @@ function isBadUsername (username) {
   var isOnBlacklist = require('the-big-username-blacklist').validate
   // if (isProfane(username)) return true
   if (!isOnBlacklist(username)) return true
-  return false
+  return !antispoof.isValid(username)
 }
 
 // this method needs to be above any proper views!

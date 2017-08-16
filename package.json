@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/zuzak/scrutineer#readme",
   "dependencies": {
+    "antispoof": "0.0.2",
     "body-parser": "^1.17.2",
     "common-password": "^0.1.2",
     "cookie-parser": "^1.4.3",

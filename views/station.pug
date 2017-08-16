@@ -3,6 +3,9 @@ block append scripts
   if station.coords
     include leaflet.pug
     script(src='/map2.js')
+block subheading
+  span= council.name
+  span.right= station.humanName
 block content
   h1: +welsh("Polling station", "Gorsaf bleidleiso")
   h2: +welsh("Location", "Lleoliad")

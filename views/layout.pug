@@ -23,14 +23,15 @@ html
       .header
         a.logo(href="/") Scrutineer
     .subheading
-      p
+      p.clear
         block subheading
-          span Walmington-on-Sea Parliamentary By-Election 2017
+          //span Walmington-on-Sea Parliamentary By-Election 2017
           if user
             a(href='/log-out').right Log out
             a(href='/about-you').right= user.username
           else
             a(href='/access-account').right Log in / create account
+    span.clear
     .main-container
       .bar
       block content
