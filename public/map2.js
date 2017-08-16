@@ -40,7 +40,7 @@ window.onload = function () {
     group.addTo(mymap)
 
     mymap.fitBounds(group.getBounds())
-    mymap.locate();
+    mymap.locate()
 
     function onLocationFound (e) {
       var radius = e.accuracy / 2
@@ -50,7 +50,7 @@ window.onload = function () {
 
       markers.push(marker)
       var group = new L.featureGroup(markers)
-      mymap.fitBounds(group.getBounds())*/
+      mymap.fitBounds(group.getBounds()) */
       L.circle(e.latlng, radius).addTo(mymap)
     }
 

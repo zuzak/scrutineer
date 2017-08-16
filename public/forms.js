@@ -2,7 +2,6 @@ window.onload = function () {
   var stylesheet = document.createElement('style')
   document.head.appendChild(stylesheet)
 
-
   var form = document.querySelector('form')
   form.addEventListener('click', function (e) {
     if (e.target.tagName === 'INPUT') {
