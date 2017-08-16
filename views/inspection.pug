@@ -53,12 +53,15 @@ block content
             li(value=i++, data-subquestion-of='tellers1')
               h3 If so, from which campaigns?
               ul.options.multi
-                +checkbox("tellers", "CON", "Conservative and Unionist Party")
-                +checkbox("tellers", "LD", "Liberal Democrats")
-                +checkbox("tellers", "LAB", "Labour")
-                +checkbox("tellers", "GRN", "The Green Party")
-                +checkbox("tellers", "PC", "Plaid Cymru")
-                +checkbox("tellers", "UKIP", "United Kingdom Independence Party")
+                +partybox("tellers", "CON", "Conservative and Unionist Party")
+                +partybox("tellers", "GRN", "Green Party")
+                +partybox("tellers", "IND", "Independent")
+                +partybox("tellers", "LAB", "Labour")
+                +partybox("tellers", "LD", "Liberal Democrats")
+                +partybox("tellers", "PC", "Plaid Cymru - The Party of Wales")
+                +partybox("tellers", "SNP", "Scottish National Party (SNP)")
+                +partybox("tellers", "UKIP", "UK Independence Party (UKIP)")
+                +partybox("tellers", "OTH", "Another Party")
             li(value=i++, data-subquestion-of='tellers1'): +closedq("Are they obviously distinct from polling station staff?", "tellers2")
         section#entry
           h2 Entry to Polling Station

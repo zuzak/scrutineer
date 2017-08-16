@@ -17,3 +17,8 @@ mixin radiogroup(id, question, options)
 
 mixin scale(question, id)
   +radiogroup(id, question, ["Always", "Regularly", "Erratically", "Never", "Arbitrarily"])
+
+mixin partybox(fieldname, abbrev, party)
+  li.option
+    input(type='checkbox', value=value, name=fieldname, id=fieldname + '-' + party)
+    label(for=fieldname+'-'+party,class='party party-'+abbrev.toLowerCase())= party
