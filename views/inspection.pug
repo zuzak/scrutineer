@@ -14,7 +14,7 @@ block content
   .twothirds
     h1 Election Observation
 
-    details(open).preamble
+    details(open).preamble#info
       summary Station information
       p You are about to observe the following polling station:
       +station(station)
@@ -31,11 +31,11 @@ block content
   div.barred
     div.leftbar
       ul
-        li: a(href='#') Station information
-        li: a(href='#') Approach to the Polling Place
-        li: a(href='#') Entry to the Polling Station
-        li: a(href='#') Voting procedure
-        li: a(href='#') Verdicts
+        li: a(href='#info') Station information
+        li: a(href='#approach') Approach to the Polling Place
+        li: a(href='#entry') Entry to the Polling Station
+        li: a(href='#procedure') Voting procedure
+        li: a(href='#verdicts') Verdicts
     div.rightbar
       form.inspection
         section#approach.clear
