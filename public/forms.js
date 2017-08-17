@@ -16,7 +16,7 @@ window.onload = function () {
     updateProgressBar()
   })
 
-  var inputs = document.querySelectorAll('input')
+  var inputs = document.querySelectorAll('input, textarea')
   for (var i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener('change', postForm)
   }
