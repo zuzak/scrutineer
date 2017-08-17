@@ -55,3 +55,5 @@ var schema = new mongoose.Schema({
   upheldIntegrity: Boolean,
   comments: String
 })
+
+module.exports = mongoose.model('Observation', schema)

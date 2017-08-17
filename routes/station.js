@@ -2,6 +2,7 @@ var app = require('../app.js')
 var Station = require('../models/station.js')
 var Council = require('../models/council.js')
 var Commission = require('../models/commission.js')
+var Observation = require('../models/observation.js')
 
 app.get('/station/:council/:station.json', function (req, res, next) {
   Station.find({
@@ -49,5 +50,27 @@ app.get('/station/:council/:station/observe', function (req, res, next) {
         })
       })
     })
+  })
+})
+app.post('/station/:council/:station/observe', function (req, res, next) {
+  var data = req.body
+  if (!data) next()
+  // Convert "Yes"/"No" to Boolean
+  var dataKeys = Object.keys(data)
+  for (var i = 0; i < dataKeys.length; i++) {
+    var value = data[dataKeys[i]]
+    if (value === 'Yes') {
+      data[dataKeys[i]] = true
+    } else if (value === 'No') {
+      data[dataKeys[i]] = false
+    }
+  }
+
+  Observation.update({
+    station_id: req.params.station,
+    council_id: req.params.council
+  }, data, {upsert: true}, function (err, result) {
+    if (err) next(err)
+    res.json(result)
   })
 })

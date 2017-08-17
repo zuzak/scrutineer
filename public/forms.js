@@ -16,8 +16,13 @@ window.onload = function () {
     updateProgressBar()
   })
 
+  var inputs = document.querySelectorAll('input')
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener('change', postForm)
+  }
+
   var timeButtons = ['ingress', 'egress']
-  for (var i = 0; i < timeButtons.length; i++) {
+  for (i = 0; i < timeButtons.length; i++) {
     var c = timeButtons[i]
     var parent = document.getElementById('js-' + c)
     var btn = document.createElement('a')
@@ -80,4 +85,17 @@ function updateProgressBar () {
       document.body.className = document.body.className.replace(' complete', '')
     }
   }
+}
+
+function postForm() {
+  var form = document.querySelector('form')
+  var data = new FormData(form)
+  var req = new XMLHttpRequest()
+  req.open('POST', window.location.href, true)
+  req.onreadystatechange = function () {
+    if (req.readyState === 4 && req.status === 200) {
+      console.log('posted', this.responseText)
+    }
+  }
+  req.send(data)
 }
