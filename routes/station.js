@@ -53,6 +53,11 @@ app.get('/station/:council/:station/observe', function (req, res, next) {
   })
 })
 app.post('/station/:council/:station/observe', function (req, res, next) {
+  if (!req.user) {
+    res.status(403)
+    res.send('you must be logged in to do this')
+    return
+  }
   var data = req.body
   if (!data) next()
   // Convert "Yes"/"No" to Boolean
