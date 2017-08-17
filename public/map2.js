@@ -29,7 +29,7 @@ window.onload = function () {
       var curr = data[i]
       if (curr.coords) {
         var marker = L.marker(curr.coords.reverse())
-        marker.bindPopup(curr.address)
+        marker.bindPopup('<a class="addresslabel" style="white-space:pre" href="/station/'+curr.council_id+'/'+curr.station_id+'">'+curr.address+'</a>')
         markers.push(marker)
       } else {
         console.log('Skipping marker ' + curr.id + ' (no coords)')
