@@ -31,7 +31,7 @@ window.onload = function () {
         var marker = L.marker(curr.coords.reverse(), {
           icon: L.icon.glyph({prefix: 'oi', glyph: 'box'})
         })
-        marker.bindPopup('<a class="addresslabel" style="white-space:pre" href="/station/'+curr.council_id+'/'+curr.station_id+'">'+curr.address+'</a>')
+        marker.bindPopup('<a class="addresslabel" style="white-space:pre" href="/station/' + curr.council_id + '/' + curr.station_id + '">' + curr.address + '</a>')
         markers.push(marker)
       } else {
         console.log('Skipping marker ' + curr.id + ' (no coords)')
@@ -53,7 +53,7 @@ window.onload = function () {
         if (err) throw err
         var districtLayer = L.geoJSON(district)
         districtLayer.addTo(mymap)
-        //mymap.fitBounds(districtLayer.getBounds())
+        // mymap.fitBounds(districtLayer.getBounds())
       })
     }
 
@@ -64,13 +64,12 @@ window.onload = function () {
 
       var marker = L.marker(e.latlng, {
         icon: L.icon.glyph({prefix: 'oi', glyph: 'location'})
-      }).addTo(mymap)//.bindPopup("You are within " + radius + " meters from this point").openPopup();
+      }).addTo(mymap)// .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
       markers.push(marker)
       var group = new L.featureGroup(markers)
       mymap.fitBounds(group.getBounds())
       L.circle(e.latlng, radius).addTo(mymap)
-
     }
 
     mymap.on('locationfound', onLocationFound)
