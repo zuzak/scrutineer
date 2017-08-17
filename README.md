@@ -12,6 +12,8 @@
 ![Screenshot of Station detail](https://i.imgur.com/00cSkTpl.png)
 
 ![Screenshot of account creations](https://i.imgur.com/Yg6gnecl.png)
+
+![Screenshot of information disclosure/profile page](https://i.imgur.com/SOjhKRil.png)
 ## Setup
 
 ## Requirements
