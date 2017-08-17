@@ -5,15 +5,12 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Screenshots
-![Screenshot of Questionnaire](https://i.imgur.com/605GZBsl.png)
+[![Screenshot of Questionnaire](https://i.imgur.com/605GZBsb.png)](https://i.imgur.com/605GZBs.png)
+[![Screenshot of Council detail](https://i.imgur.com/xVyafxab.jpg)](https://i.imgur.com/xVyafxa.jpg)
+[![Screenshot of Station detail](https://i.imgur.com/00cSkTpb.png)](https://i.imgur.com/00cSkTp.png)
+[![Screenshot of account creations](https://i.imgur.com/Yg6gnecb.png)](https://i.imgur.com/Yg6gnec.png)
+[![Screenshot of information disclosure/profile page](https://i.imgur.com/SOjhKRib.png)](https://i.imgur.com/SOjhKRi.png)
 
-![Screenshot of Council detail](https://i.imgur.com/xVyafxal.jpg)
-
-![Screenshot of Station detail](https://i.imgur.com/00cSkTpl.png)
-
-![Screenshot of account creations](https://i.imgur.com/Yg6gnecl.png)
-
-![Screenshot of information disclosure/profile page](https://i.imgur.com/SOjhKRil.png)
 ## Setup
 
 ## Requirements
