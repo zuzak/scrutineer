@@ -28,7 +28,9 @@ window.onload = function () {
     for (var i = 0; i < data.length; i++) {
       var curr = data[i]
       if (curr.coords) {
-        var marker = L.marker(curr.coords.reverse())
+        var marker = L.marker(curr.coords.reverse(), {
+          icon: L.icon.glyph({prefix: 'oi', glyph: 'box'})
+        })
         marker.bindPopup('<a class="addresslabel" style="white-space:pre" href="/station/'+curr.council_id+'/'+curr.station_id+'">'+curr.address+'</a>')
         markers.push(marker)
       } else {
@@ -60,13 +62,15 @@ window.onload = function () {
     function onLocationFound (e) {
       var radius = e.accuracy / 2
 
-      /* var marker = L.marker(e.latlng).addTo(mymap)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+      var marker = L.marker(e.latlng, {
+        icon: L.icon.glyph({prefix: 'oi', glyph: 'location'})
+      }).addTo(mymap)//.bindPopup("You are within " + radius + " meters from this point").openPopup();
 
       markers.push(marker)
       var group = new L.featureGroup(markers)
-      mymap.fitBounds(group.getBounds()) */
+      mymap.fitBounds(group.getBounds())
       L.circle(e.latlng, radius).addTo(mymap)
+
     }
 
     mymap.on('locationfound', onLocationFound)
