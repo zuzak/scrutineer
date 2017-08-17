@@ -54,9 +54,7 @@ app.get('/station/:council/:station/observe', function (req, res, next) {
 })
 app.post('/station/:council/:station/observe', function (req, res, next) {
   if (!req.user) {
-    res.status(403)
-    res.send('you must be logged in to do this')
-    return
+    return next(new Error('Must be signed in to do this')) // FIXME 403 instead of 500
   }
   var data = req.body
   if (!data) next()
@@ -70,12 +68,14 @@ app.post('/station/:council/:station/observe', function (req, res, next) {
       data[dataKeys[i]] = false
     }
   }
+  data.user_id = req.user._id
 
   Observation.update({
     station_id: req.params.station,
-    council_id: req.params.council
+    council_id: req.params.council,
+    user_id: req.user._id
   }, data, {upsert: true}, function (err, result) {
     if (err) next(err)
-    res.json(result)
+    res.send('inspection saved')
   })
 })
