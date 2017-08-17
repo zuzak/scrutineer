@@ -133,7 +133,13 @@ app.post('/amend-details', function (req, res, next) {
   })
 })
 
-app.get('/about-you', function (req, res) {
+app.get('/about-you', function (req, res, next) {
   if (!req.user) return res.redirect('/log-in')
-  res.render('users/registration-successful.pug')
+  var Observation = require('../models/observation')
+  Observation.find({
+    user_id: req.user._id
+  }, function (err, observations) {
+    if (err) next(err)
+    res.render('users/registration-successful.pug', {observations})
+  })
 })

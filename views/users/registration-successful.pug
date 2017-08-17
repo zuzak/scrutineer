@@ -20,4 +20,12 @@ block content
     a(href='/amend-details') amend your details
     span .
 
+  if observations.length > 0
+    h2 Information you cannot change
+    if observations.length > 1
+      p We also hold data about #{observations.length} observation forms you submitted.
+    else
+      p We also hold data about an observation form you submitted.
+    p You cannot amend this information.
+
   a(href='/') Return to home page
