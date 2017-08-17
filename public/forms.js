@@ -87,7 +87,7 @@ function updateProgressBar () {
   }
 }
 
-function postForm() {
+function postForm () {
   var form = document.querySelector('form')
   var data = new FormData(form)
   var req = new XMLHttpRequest()
