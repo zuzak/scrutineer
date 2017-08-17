@@ -20,7 +20,7 @@ mixin scale(question, id)
 
 mixin partybox(fieldname, abbrev, party)
   li.option
-    input(type='checkbox', value=value, name=fieldname, id=fieldname + '-' + party)
+    input(type='checkbox', value=abbrev, name=fieldname, id=fieldname + '-' + party)
     label(for=fieldname+'-'+party,class='party party-'+abbrev.toLowerCase())= party
 
 mixin prodwarning()
