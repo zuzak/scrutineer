@@ -88,13 +88,23 @@ function updateProgressBar () {
 }
 
 function postForm () {
+  var saveStatus = document.getElementById('js-savestatus')
   var form = document.querySelector('form')
   var data = new FormData(form)
   var req = new XMLHttpRequest()
   req.open('POST', window.location.href, true)
+  saveStatus.innerHTML = 'Saving'
   req.onreadystatechange = function () {
-    if (req.readyState === 4 && req.status === 200) {
-      console.log('posted', this.responseText)
+    if (req.readyState === 4) {
+      if (req.status === 200) {
+        saveStatus.innerHTML = 'Saved'
+      } else {
+        if (req.readyState === 0) {
+          saveStatus.innerHTML = 'Cannot connect'
+        } else {
+          saveStatus.innerHTML = 'Problem (' + req.status + ')'
+        }
+      }
     }
   }
   req.send(data)

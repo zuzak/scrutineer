@@ -177,3 +177,11 @@ progress {
 section h2 {
   padding-top: 2em; // push below subheading banner
 }
+
+.save-status {
+  $bg-color: lightgoldenrodyellow;
+  font-size: 0.7em;
+  margin-right: 2em;
+  background-color: $bg-color;
+  // outline: 0.5em solid $bg-color;
+}
