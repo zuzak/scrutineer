@@ -35,36 +35,38 @@ block content
         li: a(href='#approach') Approach to the Polling Place
         li: a(href='#entry') Entry to the Polling Station
         li: a(href='#procedure') Voting procedure
+        li: a(href='#place') Polling place
         li: a(href='#verdicts') Verdicts
     div.rightbar
-      form.inspection
+      form.inspection(method="POST")
         section#approach.clear
           h2 Approach to the Polling Place
           ol
-            li(value=i++): +closedq("Is the vicinity of the polling station free from any circumstances which could influence voters' choices?", "undue-influence")
-            li(value=i++): +closedq("Are there any defaced or damaged notices?", "damaged-notices")
-            li(value=i++): +closedq("Was the polling place easy to find?", "easy-to-find")
-            li(value=i++): +closedq("Is the polling station easily accessible to wheelchairs?", "accessible")
-            li(value=i++): +closedq("Is the polling station clean, tidy, and free from any hazards?", "no-hazards")
-            li(value=i++): +closedq("Are there any queues?", "queues")
-            li(value=i++): +closedq("Are there parking spaces?", "parking")
-            li(value=i++, data-subquestion-of="parking"): +closedq("Are there parking spaces reserved for disabled electors?", "dparking")
-            li(value=i++): +closedq("Are there any tellers at the polling place?", "tellers1")
-            li(value=i++, data-subquestion-of='tellers1')
+            li(value=i++): +closedq("Is the vicinity of the polling station free from any circumstances which could influence voters' choices?", "freeFromUndueInfluence")
+            li(value=i++): +closedq("Are there any defaced or damaged notices?", "hadDefacedOrDamagedNotices")
+            li(value=i++): +closedq("Was the polling place easy to find?", "wasEasyToFind")
+            li(value=i++): +closedq("Is the polling station easily accessible to wheelchairs?", "wasAccessibleToWheelchairs")
+            li(value=i++): +closedq("Is the polling station clean, tidy, and free from any hazards?", "wasFreeFromHazards")
+            li(value=i++): +closedq("Are there any queues?", "hadQueues")
+            li(value=i++, data-subquestion-of="hadQueues"): +closedq("Are the queues orderly?", "hadOrderlyQueues")
+            li(value=i++): +closedq("Are there parking spaces?", "hadParking")
+            li(value=i++, data-subquestion-of="hadParking"): +closedq("Are there parking spaces reserved for disabled electors?", "hadDisabledParking")
+            li(value=i++): +closedq("Are there any tellers at the polling place?", "hadTellers")
+            li(value=i++, data-subquestion-of='hadTellers')
               h3 If so, from which campaigns?
               ul.options.multi
-                +partybox("tellers", "CON", "Conservative and Unionist Party")
-                +partybox("tellers", "GRN", "Green Party")
-                +partybox("tellers", "IND", "Independent")
-                +partybox("tellers", "LAB", "Labour")
-                +partybox("tellers", "LD", "Liberal Democrats")
+                +partybox("hadTellersFrom", "CON", "Conservative and Unionist Party")
+                +partybox("hadTellersFrom", "GRN", "Green Party")
+                +partybox("hadTellersFrom", "IND", "Independent")
+                +partybox("hadTellersFrom", "LAB", "Labour")
+                +partybox("hadTellersFrom", "LD", "Liberal Democrats")
                 if council.council_id.startsWith('W')
-                  +partybox("tellers", "PC", "Plaid Cymru - The Party of Wales")
+                  +partybox("hadTellersFrom", "PC", "Plaid Cymru - The Party of Wales")
                 if council.council_id.startsWith('S')
-                  +partybox("tellers", "SNP", "Scottish National Party (SNP)")
-                +partybox("tellers", "UKIP", "UK Independence Party (UKIP)")
-                +partybox("tellers", "OTH", "Another Party")
-            li(value=i++, data-subquestion-of='tellers1'): +closedq("Are they obviously distinct from polling station staff?", "tellers2")
+                  +partybox("hadTellersFrom", "SNP", "Scottish National Party (SNP)")
+                +partybox("hadTellersFrom", "UKIP", "UK Independence Party (UKIP)")
+                +partybox("hadTellersFrom", "OTH", "Another Party")
+            li(value=i++, data-subquestion-of='hadTellers'): +closedq("Are they obviously distinct from polling station staff?", "tellers2")
         section#entry
           h2 Entry to Polling Station
           ol
@@ -78,55 +80,55 @@ block content
                 +checkbox("card-check", "verbal", "They checked verbally")
                 +checkbox("card-check", "card", "They looked at the identification card")
                 +checkbox("card-check", "handbook", "They consulted the polling station handbook")
-                +checkbox("card-check", "phone", "They made a phone call (to " + council.humanName + " Council)")
-                +checkbox("card-check", "phone2", "They made a phone call (to someone else)")
+                +checkbox("card-check", "phone-to-council", "They made a phone call (to " + council.humanName + " Council)")
+                +checkbox("card-check", "phone-not-to-council", "They made a phone call (to someone else)")
                 +checkbox("card-check", "refused", "They refused access to the polling station")
         section#procedure
           h2 Voting Procedure
           ol
-            li(value=i++): +closedq("Did you observe electors turning up to cast their ballot?", "observed-electors")
-            li(data-subquestion-of="observed-electors")
+            li(value=i++): +closedq("Did you observe electors turning up to cast their ballot?", "sawElectors")
+            li(data-subquestion-of="sawElectors")
               h3 Are the polling procedures being carried out&hellip;
               ol
                 li(value=i++): +scale("Confirmation of name and address", "name-and-address")
                 li(value=i++): +scale("Marking register of electors with line", "crossing-register")
                 li(value=i++): +scale("Distributing ballot paper", "distributing-ballot")
-                li(value=i++): +scale("Prefolding ballot paper", "prefold")
+                li(value=i++): +scale("Prefolding ballot paper", "prefolding-ballot")
                 li(value=i++): +scale("Unique identifying mark shown to presiding officer", "uim")
                 li(value=i++): +scale("Secrecy upheld", "secrecy")
         section#place
           h2 Polling Place
           ol
-            li(value=i++): +closedq("Are seats available for any electors who may need to rest?", "seats")
-            li(value=i++): +closedq("Are all booths situated in such a way to preserve the secrecy of the vote?", "privatebooths")
-            li(value=i++): +closedq("Do all booths have pencils?", "pencils")
-            li(value=i++): +closedq("Is there a low-level voting booth, or equivalent?", "low-level-booth")
-            li(value=i++): +closedq("Is there video recording in the polling station?", "cctv")
-            li(value=i++, data-subquestion-of="cctv"): +closedq("If so, does the placement of the cameras in any way undermine the secrecy of the vote?", "cctv2")
-            li(value=i++): +closedq("Are the voting booths well-lit, but out of direct sunlight?", "well-lit")
-            li(value=i++): +closedq("Are the election notices displayed inside the polling station and accessible to all voters?", "notices")
-            li(value=i++): +closedq("Is the \"guidance to voters\" displayed inside and outside the polling station?", "guidance-to-voters")
-            li(value=i++): +closedq("Are the \"instructions for voters\" displayed in every polling booth as required by law?", "instructions-for-voters")
-            li(value=i++): +closedq("Are the ballot boxes correctly sealed?", "sealed-boxes")
-            li(value=i++): +closedq("Has anybody handed in postal ballots today?", "postal-ballots")
-            li(value=i++): +closedq("Are the polling staff wearing neutral colours?", "neutral-colours")
-            li(value=i++): +closedq("Are there any people, other than electors, polling staff, and your observation team in the polling station?", "non-electors-intro")
-            li(value=i++, data-subquestion-of='non-electors-intro')
+            li(value=i++): +closedq("Are seats available for any electors who may need to rest?", "hadSeatsAvailable")
+            li(value=i++): +closedq("Are all booths situated in such a way to preserve the secrecy of the vote?", "hadPrivateBooths")
+            li(value=i++): +closedq("Do all booths have pencils?", "hadPencils")
+            li(value=i++): +closedq("Is there a low-level voting booth, or equivalent?", "hadLowLevelBooth")
+            li(value=i++): +closedq("Is there video recording in the polling station?", "hadCctv")
+            li(value=i++, data-subquestion-of="cctv"): +closedq("If so, does the placement of the cameras in any way undermine the secrecy of the vote?", "hadCctvThatUndermines")
+            li(value=i++): +closedq("Are the voting booths well-lit, but out of direct sunlight?", "wasWellLit")
+            li(value=i++): +closedq("Are the election notices displayed inside the polling station and accessible to all voters?", "hadNotices")
+            li(value=i++): +closedq("Is the \"guidance to voters\" displayed inside and outside the polling station?", "hadGuidanceToVoters")
+            li(value=i++): +closedq("Are the \"instructions for voters\" displayed in every polling booth as required by law?", "hadInstructionsToVoters")
+            li(value=i++): +closedq("Are the ballot boxes correctly sealed?", "hadSealedBoxes")
+            li(value=i++): +closedq("Has anybody handed in postal ballots today?", "hadPostalBallotsHandedIn")
+            li(value=i++): +closedq("Are the polling staff wearing neutral colours?", "wereWearingNeutralColours")
+            li(value=i++): +closedq("Are there any people, other than electors, polling staff, and your observation team in the polling station?", "hadNonElectors")
+            li(value=i++, data-subquestion-of='hadNonElectors')
               h3 If so, who?
               ul.options.multi
-                +checkbox("non-electors", "candidates", "Election candidates")
-                +checkbox("non-electors", "agents", "Election agents")
-                +checkbox("non-electors", "police", "Police officers")
-                +checkbox("non-electors", "ec", "Representatives of the Electoral Commission")
-                +checkbox("non-electors", "observers", "Accredited election observers")
-                +checkbox("non-electors", "u18", "Persons under the age of 18, accompanying")
-                +checkbox("non-electors", "companions", "Companions of disabled voters")
-                +checkbox("non-electors", "other", "Other")
+                +checkbox("hadNonElectorsType", "candidates", "Election candidates")
+                +checkbox("hadNonElectorsType", "agents", "Election agents")
+                +checkbox("hadNonElectorsType", "police", "Police officers")
+                +checkbox("hadNonElectorsType", "ec", "Representatives of the Electoral Commission")
+                +checkbox("hadNonElectorsType", "observers", "Accredited election observers")
+                +checkbox("hadNonElectorsType", "u18", "Persons under the age of 18, accompanying")
+                +checkbox("hadNonElectorsType", "companions", "Companions of disabled voters")
+                +checkbox("hadNonElectorsType", "other", "Other")
         section#verdicts
           h2 Verdicts
           ol
-            li(value=i++): +closedq("Are you satisfied the right to universal, individual, and secret suffrage is being held?", "upheld-suffrage")
-            li(value=i++): +closedq("Are you satisfied the integrity of the vote is being upheld?", "upheld-integrity")
+            li(value=i++): +closedq("Are you satisfied the right to universal, individual, and secret suffrage is being held?", "upheldSuffrage")
+            li(value=i++): +closedq("Are you satisfied the integrity of the vote is being upheld?", "upheldIntegrity)
             li(value=i++): +closedq("Do you wish to add further details?", "further-details")
             li(value=i++, data-subquestion-of="further-details")
               h3 Additional comments
@@ -134,7 +136,8 @@ block content
             li(value=i++)#js-egress
               h3 What time did you leave the polling station?
               input(type="time", name="egress", id="egress")
-
+          section#submit
+            input(type="submit", value="Submit form").button
           //ul.silent
             li: +closedq("Do you certify that the information you have recorded in this questionnaire is accurate?", "certify")
             li(data-subquestion-of="certify")
