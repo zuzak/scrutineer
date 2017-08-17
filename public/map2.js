@@ -36,10 +36,25 @@ window.onload = function () {
       }
     }
 
+    // add stations to map
     var group = new L.featureGroup(markers)
     group.addTo(mymap)
-
     mymap.fitBounds(group.getBounds())
+
+    // add districts to map
+    if (window.council) {
+      var url = 'https://wheredoivote.co.uk/api/beta/pollingdistricts/geo.json?council_id=' + council
+      if (window.station) {
+        url += '&district_id=' + station
+      }
+      wget(url, function (err, district) {
+        if (err) throw err
+        var districtLayer = L.geoJSON(district)
+        districtLayer.addTo(mymap)
+        //mymap.fitBounds(districtLayer.getBounds())
+      })
+    }
+
     mymap.locate()
 
     function onLocationFound (e) {

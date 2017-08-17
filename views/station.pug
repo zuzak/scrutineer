@@ -2,6 +2,9 @@ extends layout
 block append scripts
   if station.coords
     include leaflet.pug
+    script.
+      var council = '#{council.council_id}'
+      var station = '#{station.station_id}'
     script(src='/map2.js')
 block subheading
   span= council.name
