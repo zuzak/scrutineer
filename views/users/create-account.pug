@@ -6,6 +6,7 @@ block content
   form(method="POST")
     - if (!errors) errors = {}
     ul.silent
+      +prodwarning
       li
         h2: label(for="username") User name
         if errors.username

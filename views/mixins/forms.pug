@@ -22,3 +22,9 @@ mixin partybox(fieldname, abbrev, party)
   li.option
     input(type='checkbox', value=value, name=fieldname, id=fieldname + '-' + party)
     label(for=fieldname+'-'+party,class='party party-'+abbrev.toLowerCase())= party
+
+mixin prodwarning()
+  if env !== 'production'
+    .error
+      p This is not a production environment.
+      p Do not expect any data you put into this system to still be there next time you visit.

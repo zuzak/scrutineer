@@ -1,3 +1,4 @@
+require('./production.js')
 require('./auth.js')
 require('./home.js')
 require('./listings.js')

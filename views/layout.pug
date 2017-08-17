@@ -23,6 +23,11 @@ html
     header
       .header
         a.logo(href="/") Scrutineer
+        if env !== 'production'
+          if env
+            span= env
+          else
+            span Not production.
     .subheading
       p.clear
         block subheading
