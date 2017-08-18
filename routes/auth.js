@@ -143,3 +143,7 @@ app.get('/about-you', function (req, res, next) {
     res.render('users/registration-successful.pug', {observations})
   })
 })
+
+app.get('/become-an-observer', function (req, res) {
+  return res.render('users/observer-onboarding.pug')
+})
