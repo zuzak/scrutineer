@@ -2,12 +2,12 @@ var Observer = require('../models/observer')
 var User = require('../models/user')
 var app = require('..')
 
-app.get('/become-an-observer', function (req, res, next) {
+app.get('/verify-your-observer-status', function (req, res, next) {
   if (!req.user) next()
   return res.render('users/observer-onboarding.pug')
 })
 
-app.post('/become-an-observer', function (req, res, next) {
+app.post('/verify-your-observer-status', function (req, res, next) {
   console.log('a')
   if (!req.user) return next()
   console.log('b')
@@ -35,7 +35,7 @@ app.post('/become-an-observer', function (req, res, next) {
   })
 })
 
-app.post('/become-an-observer', function (req, res, next) {
+app.post('/verify-your-observer-status', function (req, res, next) {
   if (!req.user) next()
   Observer.findOne({
     id_number: req.body['ec-number'],

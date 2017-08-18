@@ -25,11 +25,11 @@ block content
             span= ' (' + data.observerNumber + ')'
         else
           td No
-          td: a(href='/become-an-observer') (change)
+          td: a(href='/verify-your-observer-status') (change)
 
   if !data.observerNumber
     p You cannot record observations unless you&nbsp;
-      a(href='/become-an-observer') verify your accreditation
+      a(href='/verify-your-observer-status') verify your accreditation
       span .
   if observations && observations.length > 0
     h2 Information you cannot change
