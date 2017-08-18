@@ -17,3 +17,15 @@
 * MongoDB (defaults to `mongodb://localhost/scrutineer`: override it with the `MONGODB_URI` environment variable)
 
 By default we synchronise with upstream data sources. Set the `NO_SYNC` environment variable (to something) to disable this.
+
+## Install
+To get this running, install MongoDB, clone this repository, and then run:
+```bash
+$ npm install
+$ npm start
+```
+
+If, on your second or later run, you wish to skip the initialisation with upstream sources, you should run:
+```bash
+$ NO_SYNC=1 npm start
+```
