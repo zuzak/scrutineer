@@ -55,6 +55,9 @@ if (!process.env.NO_SYNC) {
   if (!process.env.NO_COUNCIL_SYNC) {
     require('./jobs/importCouncils.js')()
   }
+  if (!process.env.NO_COMMISSION_SYNC) {
+    require('./jobs/importObservers')
+  }
 } else {
   console.log('Not synchronising upstream.')
 }

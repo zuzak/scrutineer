@@ -6,19 +6,17 @@ block append scripts
 block content
   .twothirds
     h1 Become an observer
-    h2 Become accredited
-    p.
-      With some exceptions, only people registered to vote in a polling station
-      are allowed to enter it whilst an election is happening.
-    p You must&nbsp;
-      a(href='https://www.electoralcommission.org.uk/find-information-by-subject/elections-and-referendums/upcoming-elections-and-referendums/observing-elections-and-referendums').
-        apply to be accredited by the Electoral Commission
-      span .
-    form
+    form(method="POST")
       ul.silent
         li: +closedq("Do you have a silver identification card issued by the Electoral Commission that is valid for the election(s) you wish to observe?", "ec-card")
         li(data-subquestion-of="ec-card")
           h3 What is your observer number?
           p This is printed in the corner of your observer's identification.
           ul.options
-            li: input(type="number")
+            li: input(type="number",name="ec-number")
+        li(data-subquestion-of="ec-card")
+          h3 What family name is written on your observer's identification?
+          p This is the second line of your name as written on your card, printed just above “Valid From”.
+          ul.options
+            li: input(type="name",name="ec-surname")
+        li: input(type="submit", value="Continue").button

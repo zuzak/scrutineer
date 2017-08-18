@@ -1,0 +1,11 @@
+extends ../layout
+block title
+  title Become an observer
+block append scripts
+  script(src="forms.js")
+block content
+  .twothirds
+    h1 Become an observer
+    h2 Verification
+    +badge(observer)
+    +closedq("Is this right?")

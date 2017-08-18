@@ -13,4 +13,5 @@ db.once('open', function () {
   require('./models/station.js')
   require('./models/council.js')
   require('./models/commission.js')
+  require('./models/observer.js')
 })

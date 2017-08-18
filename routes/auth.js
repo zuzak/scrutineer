@@ -144,6 +144,3 @@ app.get('/about-you', function (req, res, next) {
   })
 })
 
-app.get('/become-an-observer', function (req, res) {
-  return res.render('users/observer-onboarding.pug')
-})

@@ -1,0 +1,48 @@
+.observer-badge {
+  background-color: silver;
+  padding: 1em;
+  border-radius: 1em;
+  width: 20em;
+  .ec-logo {
+    color: $electoral-commission;
+    div:nth-child(2) {
+      color: $electoral-commission-middle;
+    }
+    font-size: 1.2em;
+  }
+  .left-col {
+  }
+  .right-col {
+    float: right;
+  }
+  .picture {
+    height: 7em;
+    width: 7em;
+    display: block;
+    text-align: right;
+  }
+  .id {
+    text-align: right;
+  }
+  .organisation {
+    text-align: center;
+    font-size: 0.9em;
+    max-width: 7em;
+  }
+  .validity {
+    display: table;
+    div {
+      display: table-cell;
+      padding-right: 0.2em;
+    }
+    div div {
+      display: block;
+    }
+  }
+  .tagline {
+    clear: both;
+    border-top: 2px solid black;
+    text-align: center;
+    margin-top: 1em;
+  }
+}

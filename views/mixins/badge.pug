@@ -1,0 +1,24 @@
+mixin badge(observer)
+  .observer-badge
+    .right-col
+      .id= observer.id_number
+      img(src='https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png').picture
+      .organisation= observer.organization ? observer.organization : 'Individual'
+    .left-col
+      .ec-logo
+        div The
+          div Electoral
+          div Commission
+      .forename= observer.first_name
+      .surname= observer.family_name
+      .validity
+        .valid-from
+          div Valid from
+          div: +parseDate(observer.validFrom)
+        .valid-to
+          div Valid to
+            div: +parseDate(observer.validTo)
+    div.tagline Accredited Observer
+
+mixin parseDate(date)
+  span= (date.getDay()+1) + '/' + (date.getMonth()+1) + '/' + date.getFullYear()

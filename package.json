@@ -20,9 +20,10 @@
     "common-password": "^0.1.2",
     "cookie-parser": "^1.4.3",
     "credits-to": "0.0.2",
-    "excel-parser": "^0.2.2",
+    "exceldate": "0.0.3",
     "express": "^4.15.3",
     "express-session": "^1.15.5",
+    "format-data": "^2.1.2",
     "githash": "0.0.4",
     "isemail": "^3.0.0",
     "leo-profanity": "^1.2.3",
@@ -35,18 +36,17 @@
     "progressbar": "^1.1.1",
     "pug": "^2.0.0-rc.2",
     "request": "^2.81.0",
+    "tabular-stream": "^2.0.1",
     "temp-write": "^3.3.0",
     "tempfile": "^2.0.0",
     "tempy": "^0.1.0",
-    "the-big-username-blacklist": "^1.5.1",
-    "xl-json": "^3.3.2",
-    "xls": "^0.5.1",
-    "xls-to-json": "^0.4.0"
+    "the-big-username-blacklist": "^1.5.1"
   },
   "devDependencies": {
     "mocha": "^3.4.2",
     "should": "^11.2.1",
     "standard": "^10.0.2",
     "supertest": "^3.0.0"
-  }
+  },
+  "false": {}
 }
