@@ -10,17 +10,27 @@ block content
     tr
       th User name
       td= data.username
+      td: a(href='/amend-details') (change)
     tr
       th Password
       td: emph [Not shown]
     tr
         th Email address
         td= data.email
+        td: a(href='/amend-details') (change)
+    tr
+        th Accredited
+        if data.observerNumber
+          td Yes
+            span= ' (' + data.observerNumber + ')'
+        else
+          td No
+          td: a(href='/become-an-observer') (change)
 
-  p If any of this is wrong, you can&nbsp;
-    a(href='/amend-details') amend your details
-    span .
-
+  if !data.observerNumber
+    p You cannot record observations unless you&nbsp;
+      a(href='/become-an-observer') verify your accreditation
+      span .
   if observations && observations.length > 0
     h2 Information you cannot change
     if observations.length > 1

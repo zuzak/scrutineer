@@ -7,5 +7,20 @@ block content
   .twothirds
     h1 Become an observer
     h2 Verification
-    +badge(observer)
-    +closedq("Is this right?")
+    if observer
+      p We found this person on the register that matches the details you provided.
+      +badge(observer)
+      form(method="POST")
+        input(type="hidden", name="ec-number", value=observer.id_number)
+        input(type="hidden", name="ec-surname", value=observer.family_name)
+        +closedq("Is this you?", "ec-confirm")
+        input(type="submit", value="Continue")
+    else
+      p.error.
+        We couldn't find an entry on the register of accredited observers that
+        matched the details you gave.
+      p.error Please&nbsp;
+        a(href="/become-an-observer") go back and try again
+        span .
+
+
