@@ -10,7 +10,7 @@
 [![Screenshot of Station detail](https://i.imgur.com/00cSkTpb.png)](https://i.imgur.com/00cSkTp.png)
 [![Screenshot of account creations](https://i.imgur.com/Yg6gnecb.png)](https://i.imgur.com/Yg6gnec.png)
 [![Screenshot of information disclosure/profile page](https://i.imgur.com/SOjhKRib.png)](https://i.imgur.com/SOjhKRi.png)
-
+[![Screenshot of observer verification page](https://i.imgur.com/j9v28TYb.png)](https://i.imgur.com/j9v28TY.png)
 ## Setup
 
 ## Requirements
