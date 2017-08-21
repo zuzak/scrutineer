@@ -1,11 +1,11 @@
 extends ../layout
 block title
-  title Become an observer
+  title Verify your observer status
 block append scripts
   script(src="forms.js")
 block content
   .twothirds
-    h1 Become an observer
+    h1 Verify your observer status
     h2 Verification
     if observer
       p We found this person on the register that matches the details you provided.
@@ -13,8 +13,12 @@ block content
       form(method="POST")
         input(type="hidden", name="ec-number", value=observer.id_number)
         input(type="hidden", name="ec-surname", value=observer.family_name)
-        +closedq("Is this you?", "ec-confirm")
+        ul.silent
+          li: +closedq("Is this you?", "ec-confirm")
+          li(data-subquestion-of="ec-confirm"): p.
+            We'll associate your observer number (#{observer.id_number}) with your account (#{user.username}).
         input(type="submit", value="Continue")
+
     else
       p.error.
         We couldn't find an entry on the register of accredited observers that

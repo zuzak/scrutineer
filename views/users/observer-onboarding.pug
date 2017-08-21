@@ -1,11 +1,11 @@
 extends ../layout
 block title
-  title Become an observer
+  title Verify your observer status
 block append scripts
   script(src="forms.js")
 block content
   .twothirds
-    h1 Become an observer
+    h1 Verify your observer status
     form(method="POST")
       ul.silent
         li: +closedq("Do you have a silver identification card issued by the Electoral Commission that is valid for the election(s) you wish to observe?", "ec-card")
@@ -20,3 +20,7 @@ block content
           ul.options
             li: input(type="name",name="ec-surname")
         li: input(type="submit", value="Continue").button
+    p.
+      We ask for this information to encourage our users to
+      become officially accredited before recording any observations
+      with us.

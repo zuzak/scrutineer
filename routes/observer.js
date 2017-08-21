@@ -8,11 +8,9 @@ app.get('/verify-your-observer-status', function (req, res, next) {
 })
 
 app.post('/verify-your-observer-status', function (req, res, next) {
-  console.log('a')
   if (!req.user) return next()
-  console.log('b')
   if (!req.body['ec-confirm']) return next()
-  console.log('c')
+  if (req.body['ec-confirm'] !== 'Yes') return next()
   Observer.findOne({
     id_number: req.body['ec-number'],
     family_name: req.body['ec-surname']
@@ -37,6 +35,9 @@ app.post('/verify-your-observer-status', function (req, res, next) {
 
 app.post('/verify-your-observer-status', function (req, res, next) {
   if (!req.user) next()
+  if (req.body['ec-card'] !== 'Yes') {
+    return res.render('users/observer-fail.pug')
+  }
   Observer.findOne({
     id_number: req.body['ec-number'],
     family_name: req.body['ec-surname']
