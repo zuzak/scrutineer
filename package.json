@@ -4,6 +4,7 @@
   "main": "app.js",
   "scripts": {
     "test": "NODE_ENV='test' NO_SYNC='true' node node_modules/selenium-cucumber-js/index.js -s ./features/steps",
+    "silenttest": "NODE_ENV='test' NO_SYNC='true' node node_modules/selenium-cucumber-js/index.js -s ./features/steps > /dev/null 2> /dev/null",
     "start": "bin/www"
   },
   "repository": {
@@ -44,7 +45,9 @@
     "the-big-username-blacklist": "^1.5.1"
   },
   "devDependencies": {
+    "codacy-coverage": "^2.0.2",
     "mocha": "^3.4.2",
+    "nyc": "^11.1.0",
     "selenium-cucumber-js": "^1.4.9",
     "should": "^11.2.1",
     "standard": "^10.0.2",

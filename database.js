@@ -1,6 +1,10 @@
 var mongoose = require('mongoose')
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/scrutineer', {server: {auto_reconnect: true}})
+var env = process.env.NODE_ENV || ''
+env = env.length > 0 ? '-' + env : env
+env = env.toLowerCase()
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/scrutineer' + env, {server: {auto_reconnect: true}})
 
 var db = module.exports = mongoose.connection
 
