@@ -1,5 +1,16 @@
 language: node_js
+dist: trusty
 node_js:
-  - 4.2.6
+- 4.2.6
 services:
-  - mongodb
+- mongodb
+addons:
+  chrome: stable
+  sauce_connect:
+    username: zuzak
+    access_key:
+      secure: "Bi6lhVHhVpdoGdmvGBQLVNyUJS3fKvJMPWsJSlYqsP+OV/8+VanCV2lAGo6PvsF22+aqXRN1x3uNWNinrNIbsJV1ERQrGId7OUvoKbrU+sVqbandy8DYoP2of5RMeDsK54/KfcQR0B+Qft5V5M9iVK5hjVNOq9pdkDGetVSn8Lw0lbThBDdDmpBHYcV1AO1F/xewDpJv0v16uhd7fe6XF1UCqBL7cjlfOrFumrzJyTIy0Q1bNJp01eLWPiLiHApO3Tj355WVl6j2EuuH/vJ0KKo8Iqrr4z+nXbv7Giyj71tUBPUZU9wQN6lvj7Nr1Ah2bFE0BNNYQGib8iT6YKanHO9JH+maPyMScY6yFTcc02oaByxseVYOjs9B/2pqBaCVtGwMaaIRM0M2pRsS/I2DzbW//5oTv9knah5WNvSe55f8C0qge3L1OhkD/mhynvf3y0oudBLgIe5dchrEbN0Q/DwCBnGV7nqe/0nHDh/99nqMj0xIE2nySv5KE2J2XTKlUPbxGSQLOr3kSl+MJe+3TyGsfe/ZS0+Tt0+jSWMYGJMEC5+EfRNAuFZ0jQlgf1Qb2HHToJoLNrSYXRZVN5HQYLqTDmZDBJx9utthdDiMGCjiYLOuLpVECbqntIMFrp2J/ThF5hNwo0W8ptVMB3lioF1/r7w9S8Zpc54NluPkb7k="
+  before_script:
+    - NODE_ENV="test" NO_SYNC="true" npm start &
+  script:
+    - npm test
