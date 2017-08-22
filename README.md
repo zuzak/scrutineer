@@ -29,3 +29,10 @@ If, on your second or later run, you wish to skip the initialisation with upstre
 ```bash
 $ NO_SYNC=1 npm start
 ```
+
+## Tests
+To run the Selenium tests you must have a Selenium server running.
+On a Mac:
+```bash
+$ brew install selenium-server-standalone
+```

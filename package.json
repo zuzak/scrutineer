@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "NODE_ENV='test' node_modules/mocha/bin/mocha test/*.js",
+    "test": "NODE_ENV='test' NO_SYNC='true' node node_modules/selenium-cucumber-js/index.js -s ./features/steps",
     "start": "bin/www"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "mongoose": "^4.11.5",
     "mongoose-password-plugin": "^0.1.2",
     "morgan": "^1.8.2",
+    "nightwatch": "^0.9.16",
     "node-sass-middleware": "^0.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "mocha": "^3.4.2",
+    "selenium-cucumber-js": "^1.4.9",
     "should": "^11.2.1",
     "standard": "^10.0.2",
     "supertest": "^3.0.0"
