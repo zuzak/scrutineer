@@ -1,0 +1,58 @@
+extends ../layout
+block content
+  h1 Observations
+  h2 Completed observations
+  p These observations have recorded verdicts.
+  table
+    tr
+      th Council
+      th Station
+      th Upheld Suffrage?
+      th Upheld Integrity?
+    for observation in observations.complete
+          tr
+            td= observation.council_id
+            td= observation.station_id
+            td: +tick(observation.upheldSuffrage)
+            td: +tick(observation.upheldIntegrity)
+    else
+      tr
+        td(colspan="4") No observations recorded.
+
+  h2 Observations in progress
+  p Observations that have an entry timestamp, but no exit timestamp.
+  table
+    tr
+      th Council
+      th Station
+      th Started at
+      th Entered at
+    for observation in observations.inprogress
+          tr
+            td= observation.council_id
+            td= observation.station_id
+            td= observation._id.getTimestamp().toTimeString().slice(0, 8)
+            td= observation.ingress
+            td= observation.egress
+
+
+  h2 Incomplete observations
+  table
+    tr
+      th Council
+      th Station
+      th Completed fields
+    for observation in observations.inprogress
+      tr
+        td= observation.council_id
+        td= observation.station_id
+        td= Object.keys(observation).length
+
+
+mixin tick(value)
+  if value === true
+    span.yes Upheld
+  else if value === false
+    span.no Not upheld
+  else
+    span &ndash; #{value.toString()}

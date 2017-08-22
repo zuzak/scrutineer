@@ -1,26 +1,20 @@
-extends ../layout
-block title
-  title Verify your observer status
-block append scripts
-  script(src="forms.js")
-block content
-  .twothirds
-    h1 Verify your observer status
-    form(method="POST")
-      ul.silent
-        li: +closedq("Do you have a silver identification card issued by the Electoral Commission that is valid for the election(s) you wish to observe?", "ec-card")
-        li(data-subquestion-of="ec-card")
-          h3 What is your observer number?
-          p This is printed in the corner of your observer's identification.
-          ul.options
-            li: input(type="number",name="ec-number")
-        li(data-subquestion-of="ec-card")
-          h3 What family name is written on your observer's identification?
-          p This is the second line of your name as written on your card, printed just above “Valid From”.
-          ul.options
-            li: input(type="name",name="ec-surname")
-        li: input(type="submit", value="Continue").button
-    p.
-      We ask for this information to encourage our users to
-      become officially accredited before recording any observations
-      with us.
+extends observer
+block info
+  form(method="POST")
+    ul.silent
+      li: +closedq("Do you have a silver identification card issued by the Electoral Commission that is valid for the election(s) you wish to observe?", "ec-card")
+      li(data-subquestion-of="ec-card")
+        h3 What is your observer number?
+        p This is printed in the corner of your observer's identification.
+        ul.options
+          li: input(type="number",name="ec-number")
+      li(data-subquestion-of="ec-card")
+        h3 What family name is written on your observer's identification?
+        p This is the second line of your name as written on your card, printed just above “Valid From”.
+        ul.options
+          li: input(type="name",name="ec-surname")
+      li: input(type="submit", value="Continue").button
+  p.
+    We ask for this information to encourage our users to
+    become officially accredited before recording any observations
+    with us.

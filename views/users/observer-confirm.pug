@@ -1,30 +1,21 @@
-extends ../layout
-block title
-  title Verify your observer status
-block append scripts
-  script(src="forms.js")
-block content
-  .twothirds
-    h1 Verify your observer status
-    h2 Verification
-    if observer
-      p We found this person on the register that matches the details you provided.
-      +badge(observer)
-      form(method="POST")
-        input(type="hidden", name="ec-number", value=observer.id_number)
-        input(type="hidden", name="ec-surname", value=observer.family_name)
-        ul.silent
-          li: +closedq("Is this you?", "ec-confirm")
-          li(data-subquestion-of="ec-confirm"): p.
-            We'll associate your observer number (#{observer.id_number}) with your account (#{user.username}).
-        input(type="submit", value="Continue")
+extends observer
+block info
+  if observer
+    p We found this person on the register that matches the details you provided.
+    +badge(observer)
+    form(method="POST")
+      input(type="hidden", name="ec-number", value=observer.id_number)
+      input(type="hidden", name="ec-surname", value=observer.family_name)
+      ul.silent
+        li: +closedq("Is this you?", "ec-confirm")
+        li(data-subquestion-of="ec-confirm"): p.
+          We'll associate your observer number (#{observer.id_number}) with your account (#{user.username}).
+      input(type="submit", value="Continue").button
 
-    else
-      p.error.
-        We couldn't find an entry on the register of accredited observers that
-        matched the details you gave.
-      p.error Please&nbsp;
-        a(href="/verify-your-observer-status") go back and try again
-        span .
-
-
+  else
+    p.error.
+      We couldn't find an entry on the register of accredited observers that
+      matched the details you gave.
+    p.error Please&nbsp;
+      a(href="/verify-your-observer-status") go back and try again
+      span .

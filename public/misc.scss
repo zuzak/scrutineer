@@ -141,3 +141,16 @@ ul.silent {
     font-size: 0.7em;
   }
 }
+
+.yes {
+  //color: $yes-colour;
+}
+.yes::before {
+  content: '✓ '
+}
+.no {
+  color: $error-colour;
+}
+.no::before {
+  content: '✗ '
+}
