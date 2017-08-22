@@ -5,6 +5,7 @@ node_js:
 services:
 - mongodb
 addons:
+  chrome: stable
   sauce_connect:
     username: zuzak
     access_key:
