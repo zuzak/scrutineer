@@ -15,19 +15,14 @@ app.post('/verify-your-observer-status', function (req, res, next) {
     id_number: req.body['ec-number'],
     family_name: req.body['ec-surname']
   }, function (err, observer) {
-    console.log('d')
     if (err) return next(err)
-    console.log('e', err, observer)
     if (!observer) return next()
-    console.log('f')
     User.update({
       _id: req.user._id
     }, {
       observerNumber: req.body['ec-number']
     }, function (err2, res2) {
-      console.log('g')
       if (err2) return next(err2)
-      console.log('h', res2, req.body)
       return res.redirect('/about-you')
     })
   })

@@ -16,7 +16,6 @@ function wget (url, cb) {
 }
 
 window.onload = function () {
-  console.log('shwmae ffrindiau')
   var mymap = L.map('map').setView([52.4052, -4.0486], 13) // Aberystwyth
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -36,7 +35,7 @@ window.onload = function () {
         marker.bindPopup('<a class="addresslabel" style="white-space:pre" href="/station/' + curr.council_id + '/' + curr.station_id + '">' + curr.address + '</a>')
         markers.push(marker)
       } else {
-        console.log('Skipping marker ' + curr.id + ' (no coords)')
+        console.error('Skipping marker ' + curr.id + ' (no coords)')
       }
     }
 

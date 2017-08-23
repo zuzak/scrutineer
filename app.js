@@ -50,7 +50,7 @@ app.use(function (err, req, res, next) {
 })
 
 if (!process.env.NO_SYNC) {
-  console.log('ok let\'s go')
+  console.log('   Synchronising upstream.')
   if (!process.env.NO_STATION_SYNC) {
     require('./jobs/importStations.js')()
   }

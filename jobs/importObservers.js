@@ -10,7 +10,6 @@ var REGISTER_UPSTREAM_URL = 'http://www.electoralcommission.org.uk/__data/assets
 function downloadRegister (cb) {
   var excelFile = tempy.file({extension: '.xls'})
   // var stream = fs.createWriteStream(excelFile)
-  console.log(excelFile)
   var buffers = []
   request(REGISTER_UPSTREAM_URL).pipe(tabular()).pipe(format('json'))
     .on('data', function (buffer) {
@@ -48,12 +47,11 @@ downloadRegister(function (register) {
       validFrom: exceldate(observer.ValidFrom),
       validTo: exceldate(observer.ValidTo)
     }
-    console.log(observer.IDNUMBER)
+    console.log('Importing observer #' + observer.IDNUMBER)
     Observer.findOneAndUpdate({
       id_number: newEntry.id_number
     }, newEntry, {upsert: true}, function (err, res) {
       if (err) throw err
-      console.log('fo', res)
     })
   }
 })

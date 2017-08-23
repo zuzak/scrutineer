@@ -38,7 +38,6 @@ module.exports = function () {
     }
   })
   paginate(API2_URL, function (err, response) {
-    console.log('DOING THE THING')
     if (err) throw err
     if (!response.results) {
       return console.error(response)
