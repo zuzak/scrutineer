@@ -1,5 +1,4 @@
 var request = require('request')
-var tempy = require('tempy')
 var tabular = require('tabular-stream')
 var format = require('format-data')
 var exceldate = require('exceldate')
@@ -8,7 +7,6 @@ var Observer = require('../models/observer.js')
 var REGISTER_UPSTREAM_URL = 'http://www.electoralcommission.org.uk/__data/assets/excel_doc/0009/57285/Accredited_observers.xls'
 
 function downloadRegister (cb) {
-  var excelFile = tempy.file({extension: '.xls'})
   // var stream = fs.createWriteStream(excelFile)
   var buffers = []
   request(REGISTER_UPSTREAM_URL).pipe(tabular()).pipe(format('json'))
