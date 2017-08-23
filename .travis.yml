@@ -17,10 +17,10 @@ addons:
 before_script:
 - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost:3000 &
 script:
-- sonar-scanner
 - npm test
 after_script:
 - node_modules/nyc/bin/nyc.js --reporter=lcov --reporter=text npm test && cat coverage/lcov.info | node_modules/codacy-coverage/bin/codacy-coverage.js
+- sonar-scanner
 env:
   global:
     secure: DrO3IYbAEEmo14X1jJ6RPjq1LAiMzaVKl671h4u6lNrjHPR6ZrI0Pv15KXVRpRkr6QDcSK9q5ou9JGiCtBnhWDuivtmNwnIewJnDbTPC/AwI+BMV+MDtoyikgRRyUYhfNtYnsVOELbrBaXUD0Cx1glLLTIQXAbb8xj51aUFblCwiE7d/MBKGEsSZOUWTc6LSbyW+AYHAokazRDNMShmvCl1KsR8UTF4fC/naWfiIC4AXEErUc2hH6dGJy1wqaeJrxxxgOOMR+IlLHPSj0ASb1bfLsA2/MnqHDpvZOIvaDEww5L17N5S4fdTi6+f4o3g3dK9sZSKd6MKU8O6oJNxbUNh14BU7TJwKJ/FEYBlhVhDVeL3DuG91aLFCV8GfVQI88SdwimwDcsgxCv8JjJ2XyJRu2VQxPkzengWMiUei+Fvxukj3905J5Vq3Va8si82qBMqOFnK6y1Af3ByzmR//CkZFqJNV473lNLE2b9iJm1RQczrm6/gpS4bGfTouZjzQiECPQW+YFr87RgZK+gzw/70r2FROZhiJD1eaSmpDCae773ku7vl1GTDJpS5+MSIBVlQWdsqJAdylQSSvXs8cugmza313DONv7fiGuVAxZ/VTbLQhzF77YAZ4HxQjtQpAWPMTGddB+Anv5lI/1hzZZocX/8EoWQ70woImc94xBIM=
