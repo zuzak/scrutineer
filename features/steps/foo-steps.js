@@ -27,4 +27,12 @@ module.exports = function () {
         return expect(foo).to.equal(value)
       })
   })
+  this.Then(/^the h(\d+) should say "([^"]*)"$/, function (headingtype, contents) {
+    return driver.wait(until.elementsLocated(by.css('h' + headingtype)), 10000).then(function () {
+      return driver.findElement(by.css('h' + headingtype)).getText()
+    })
+      .then(function (foo) {
+        return expect(foo).to.equal(contents)
+      })
+  })
 }
