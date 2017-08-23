@@ -15,9 +15,16 @@ Scenario: I have no badge
   And I click the "Continue" button
   Then the h2 should say "You need to be accredited"
 
-Scenario: I have a badge
+Scenario: I have a badge with invalid details
   When I click the "Yes" button
   And I type "Bloggs" in the ec-surname field
   And I type "1234" in the ec-number field
   And I click the "Continue" button
   Then I should get an error message
+
+Scenario: I have a badge with valid details
+  When I click the "Yes" button
+  And I type "7782" in the ec-number field
+  And I type "Jordan" in the ec-surname field
+  And I click the "Continue" button
+  Then the h3 should say "Is this you?"

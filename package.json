@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "NODE_ENV='test' NO_SYNC='true' node node_modules/selenium-cucumber-js/index.js -s ./features/steps",
+    "test": "NODE_ENV='test' NO_STATION_SYNC='true' NO_COUNCIL_SYNC='true' node node_modules/selenium-cucumber-js/index.js -s ./features/steps",
     "silenttest": "NODE_ENV='test' NO_SYNC='true' node node_modules/selenium-cucumber-js/index.js -s ./features/steps > /dev/null 2> /dev/null",
     "start": "bin/www"
   },
