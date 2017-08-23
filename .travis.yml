@@ -1,11 +1,16 @@
 language: node_js
 dist: trusty
+sudo: required
 node_js:
 - 6.11.0
 services:
 - mongodb
 addons:
   chrome: stable
+  sonarcloud:
+    organization: 'zuzak-github'
+    token:
+      secure: "A3PRg476OvGdygouDIf+pB60JNmb8O7ZOGk8k6OaQA7sQ3skYvY+mHX3LA3vAMeOrmjJXKdJUtTie6RSXWO1J4m6t8pFl5vR4WgTxk11q2/FiTBbXlQvOluYxIbDrcyi0P4uAbYEXCrAQMNDYLrKyz0XCc9gsXdWnvTCN0XAFYhxr8aqKWMLY0X6lJ28UfOSS2A8M9OWzr2MAJJGMGbtJDsuPrWycHX1RAQ6j1ZEFNhytAie+myFS8gZdGbZ2X7NskB3ORh4NKqKCYdcaDwl/6xgbUbBCRw54gw6paUbTcoNes6UgrVrGouFY3exSz0EBqoAN8cpoONDQY+YcRk1GlGN2MZuF7i+4sYDNAixKfXSN7QxD9euKfR0r/QikFfJY2inviFXX/15omewEOfnqjORLcb5kc9M5ORuuzqK8SaadH/EybIrHJPZ/WmvVrxU7iiGl2quMRToCe5SasAqyokkwY/JHCh1IhdIN8DBsz7HmAHHkN2/X7zDoTS1Uk9xKL7cMBWSy5G62k8grPgVjFMFs+8iOEA5EaG626yl/sI0zSmiZxx5+UlyLr/s7P0DcXQZVZR7ZAH+S1J0g4+mNqmxej3XIbJauAD0P5g/rkBAJnAIt4jdR8oHT0i+03I0zuFa6+vixK37JjXlYqPeKnhsXcG+hXoAJzXkDtuij8g="
   sauce_connect:
     username: zuzak
     access_key:
@@ -13,9 +18,15 @@ addons:
 before_script:
 - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost:3000 &
 script:
+- sonar-scanner
 - npm test
 after_script:
 - node_modules/nyc/bin/nyc.js --reporter=lcov --reporter=text npm test && cat coverage/lcov.info | node_modules/codacy-coverage/bin/codacy-coverage.js
 env:
   global:
     secure: DrO3IYbAEEmo14X1jJ6RPjq1LAiMzaVKl671h4u6lNrjHPR6ZrI0Pv15KXVRpRkr6QDcSK9q5ou9JGiCtBnhWDuivtmNwnIewJnDbTPC/AwI+BMV+MDtoyikgRRyUYhfNtYnsVOELbrBaXUD0Cx1glLLTIQXAbb8xj51aUFblCwiE7d/MBKGEsSZOUWTc6LSbyW+AYHAokazRDNMShmvCl1KsR8UTF4fC/naWfiIC4AXEErUc2hH6dGJy1wqaeJrxxxgOOMR+IlLHPSj0ASb1bfLsA2/MnqHDpvZOIvaDEww5L17N5S4fdTi6+f4o3g3dK9sZSKd6MKU8O6oJNxbUNh14BU7TJwKJ/FEYBlhVhDVeL3DuG91aLFCV8GfVQI88SdwimwDcsgxCv8JjJ2XyJRu2VQxPkzengWMiUei+Fvxukj3905J5Vq3Va8si82qBMqOFnK6y1Af3ByzmR//CkZFqJNV473lNLE2b9iJm1RQczrm6/gpS4bGfTouZjzQiECPQW+YFr87RgZK+gzw/70r2FROZhiJD1eaSmpDCae773ku7vl1GTDJpS5+MSIBVlQWdsqJAdylQSSvXs8cugmza313DONv7fiGuVAxZ/VTbLQhzF77YAZ4HxQjtQpAWPMTGddB+Anv5lI/1hzZZocX/8EoWQ70woImc94xBIM=
+jdk:
+  - oraclejdk8
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
