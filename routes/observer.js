@@ -40,5 +40,5 @@ app.post('/verify-your-observer-status', function (req, res, next) {
     if (err) next(err)
     res.render('users/observer-confirm.pug', {observer: response})
   })
-  //return res.render('users/observer-confirm.pug')
+  // return res.render('users/observer-confirm.pug')
 })

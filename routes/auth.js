@@ -143,4 +143,3 @@ app.get('/about-you', function (req, res, next) {
     res.render('users/registration-successful.pug', {observations})
   })
 })
-
