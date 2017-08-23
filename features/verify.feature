@@ -28,3 +28,13 @@ Scenario: I have a badge with valid details
   And I type "Jordan" in the ec-surname field
   And I click the "Continue" button
   Then the h3 should say "Is this you?"
+  And the forename should be "Steven Matthew"
+
+Scenario: I have a badge with invalid valid details
+  When I click the "Yes" button
+  And I type "7782" in the ec-number field
+  And I type "Jordan" in the ec-surname field
+  And I click the "Continue" button
+  And I click the "No" button
+  And I click "Continue"
+  Then the h2 should say "You need to be accredited"

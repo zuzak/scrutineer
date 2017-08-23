@@ -35,4 +35,12 @@ module.exports = function () {
         return expect(foo).to.equal(contents)
       })
   })
+  this.Then(/^the ([a-z]+) should be "([^"]*)"$/, function (className, contents) {
+    return driver.wait(until.elementsLocated(by.css('.' + className)), 10000).then(function () {
+      return driver.findElement(by.css('.' + className)).getText()
+    })
+      .then(function (foo) {
+        return expect(foo).to.equal(contents)
+      })
+  })
 }
