@@ -1,14 +1,16 @@
 # scrutineer
-[![Build Status](https://travis-ci.org/zuzak/scrutineer.svg?branch=master)](https://travis-ci.org/zuzak/scrutineer)
+[![Build Status](https://scrutinizer-ci.com/g/zuzak/scrutineer/badges/build.png?b=master)](https://scrutinizer-ci.com/g/zuzak/scrutineer/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/zuzak/scrutineer/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/zuzak/scrutineer/?branch=master)
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zuzak/scrutineer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/zuzak/scrutineer/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1f2b7c213b34470db18e7e59b133a894)](https://www.codacy.com/app/douglas/scrutineer)
-[![Heroku](http://heroku-badge.herokuapp.com/?app=scrutineer&svg=1)](https://scrutineer.herokuapp.com)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![Scrutinizer](https://img.shields.io/scrutinizer/g/zuzak/scrutineer.svg)](https://scrutinizer-ci.com/g/zuzak/scrutineer/)
 [
 ![Gate](https://sonarcloud.io/api/badges/gate?key=zuzak:scrutineer)
-![Coverage](https://sonarcloud.io/api/badges/measure?key=zuzak:scrutineer&metric=coverage)
 ![LoC](https://sonarcloud.io/api/badges/measure?key=zuzak:scrutineer&metric=ncloc)
 ](https://sonarcloud.io/dashboard/index/zuzak:scrutineer)
+
+[![Heroku](http://heroku-badge.herokuapp.com/?app=scrutineer&svg=1)](https://scrutineer.herokuapp.com)
 ## Screenshots
 [![Screenshot of Questionnaire](https://i.imgur.com/605GZBsb.png)](https://i.imgur.com/605GZBs.png)
 [![Screenshot of Council detail](https://i.imgur.com/xVyafxab.jpg)](https://i.imgur.com/xVyafxa.jpg)
