@@ -1,3 +1,5 @@
+/* eslint-env browser */
+/* global L */
 function wget (url, cb) {
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url, true)

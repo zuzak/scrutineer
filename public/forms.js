@@ -1,3 +1,4 @@
+/* eslint-env browser */
 window.onload = function () {
   var stylesheet = document.createElement('style')
   document.head.appendChild(stylesheet)
