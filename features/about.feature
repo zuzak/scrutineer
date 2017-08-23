@@ -1,5 +1,6 @@
-Feature: Cookie banner
+Feature: About page
 
-Scenario: Viewing the cookie banner
+Scenario: About page footer
   When I visit the homepage
-  Then the cookie banner should be displayed
+  And I click "About this website"
+  Then the heading should read "About this website"
