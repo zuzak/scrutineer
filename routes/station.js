@@ -62,6 +62,7 @@ app.get('/station/:council/:station/observe', function (req, res, next) {
 })
 app.post('/station/:council/:station/observe', function (req, res, next) {
   if (!req.user) {
+    return res.redirect('/access-account')
     return next(new Error('Must be signed in to do this')) // FIXME 403 instead of 500
   }
   var data = req.body
