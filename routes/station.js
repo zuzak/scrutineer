@@ -33,6 +33,14 @@ app.get('/station/:council/:station', function (req, res, next) {
 })
 
 app.get('/station/:council/:station/observe', function (req, res, next) {
+  if (!req.user) {
+    req.flash('error', 'You must log in to observe a station.')
+    return res.redirect('/access-account')
+  }
+  if (!req.user.observerNumber) {
+    req.flash('error', 'You must be verified as an observer before you can observe a station.')
+    return res.redirect('/verify-your-observer-status')
+  }
   Station.find({
     council_id: req.params.council,
     station_id: req.params.station

@@ -39,9 +39,12 @@ html
             a(href='/about-you').right= user.username
           else
             a(href='/access-account').right Log in / create account
+
     span.clear
     .main-container
       .bar
+      if messages && messages.error
+        .flashmessage: span= messages.error
       block content
     .clear
     footer

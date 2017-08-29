@@ -110,12 +110,18 @@ app.all('*', function (req, res, next) {
 })
 
 app.get('/amend-details', function (req, res) {
-  if (!req.user) return res.redirect('/log-in')
+  if (!req.user) {
+    req.flash('error', 'You must be signed in to amend your details.')
+    return res.redirect('/log-in')
+  }
   res.render('users/amend-details.pug')
 })
 
 app.post('/amend-details', function (req, res, next) {
-  if (!req.user) return res.redirect('/log-in')
+  if (!req.user) {
+    req.flash('error', 'You must be signed in to change your details.')
+    return res.redirect('/log-in')
+  }
   var errors = validateAccount(req.body, ['password'])
   if (errors.hasErrors) {
     return res.render('users/amend-details.pug', {errors})
@@ -134,6 +140,10 @@ app.post('/amend-details', function (req, res, next) {
 })
 
 app.get('/about-you', function (req, res, next) {
+  if (!req.user) {
+    req.flash('error', 'You must be signed in to view your details.')
+    return res.redirect('/log-in')
+  }
   if (!req.user) return res.redirect('/log-in')
   var Observation = require('../models/observation')
   Observation.find({

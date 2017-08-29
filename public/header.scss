@@ -78,3 +78,20 @@ header {
     margin-top: 2em;
   }
 }
+
+.flashmessage {
+  color: $error-colour;
+  padding: 1em;
+  margin: 1em 0;
+  span {
+    outline: 0.2em solid $error-colour;
+    padding: 0.5em;
+  }
+  span.msg-info {
+    outline-color: $yes-colour;
+  }
+  span:before {
+    content: 'Error: ';
+    font-weight: bold;
+  }
+}

@@ -23,6 +23,7 @@
     "credits-to": "0.0.2",
     "exceldate": "0.0.3",
     "express": "^4.15.3",
+    "express-flash": "0.0.2",
     "express-session": "^1.15.5",
     "format-data": "^2.1.2",
     "githash": "0.0.4",
