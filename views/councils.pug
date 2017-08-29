@@ -2,10 +2,10 @@ extends layout
 block title
   title List of councils
 block append scripts
-  include leaflet.pug
-  script(src='/map2.js')
+  script(src='search.js')
 block content
   h1: +welsh("Councils", "Cynghorau")
+  span#js-search
   ol.councils
     for council in councils.sort()
       li
