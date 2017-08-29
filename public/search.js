@@ -1,5 +1,5 @@
-function normalize(string) {
-  return string.toLowerCase();
+function normalize (string) {
+  return string.toLowerCase()
 }
 window.onload = function () {
   console.log('anjnuj')
