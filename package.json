@@ -39,8 +39,6 @@
     "pug": "^2.0.0-rc.2",
     "request": "^2.81.0",
     "tabular-stream": "^2.0.1",
-    "temp-write": "^3.3.0",
-    "tempfile": "^2.0.0",
     "the-big-username-blacklist": "^1.5.1"
   },
   "devDependencies": {
