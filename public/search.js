@@ -2,7 +2,6 @@ function normalize (string) {
   return string.toLowerCase()
 }
 window.onload = function () {
-  console.log('anjnuj')
   var placeholder = document.getElementById('js-search')
   var searchBar = document.createElement('input')
   searchBar.type = 'search'
