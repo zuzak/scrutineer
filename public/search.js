@@ -8,7 +8,6 @@ window.onload = function () {
   searchBar.placeholder = 'Search'
   placeholder.appendChild(searchBar)
 
-  console.log('aaa')
   searchBar.addEventListener('input', function (a) {
     var searchTerm = a.target.value
     var councils = document.querySelectorAll('.councils li')

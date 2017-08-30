@@ -92,6 +92,7 @@ function postForm () {
   var saveStatus = document.getElementById('js-savestatus')
   var form = document.querySelector('form')
   var data = new FormData(form)
+  console.log('CDATA', data)
   var req = new XMLHttpRequest()
   req.open('POST', window.location.href, true)
   saveStatus.innerHTML = 'Saving'

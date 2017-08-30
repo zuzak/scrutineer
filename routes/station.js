@@ -66,7 +66,7 @@ app.post('/station/:council/:station/observe', function (req, res, next) {
     return next(new Error('Must be signed in to do this')) // FIXME 403 instead of 500
   }
   var data = req.body
-  if (!data) next()
+  if (!data) return next()
   // Convert "Yes"/"No" to Boolean
   var dataKeys = Object.keys(data)
   for (var i = 0; i < dataKeys.length; i++) {
@@ -77,14 +77,21 @@ app.post('/station/:council/:station/observe', function (req, res, next) {
       data[dataKeys[i]] = false
     }
   }
-  data.user_id = req.user._id
-
-  Observation.update({
+  data.user = req.user._id
+  console.log('DATA', data)
+  Station.find({
     station_id: req.params.station,
     council_id: req.params.council,
-    user_id: req.user._id
-  }, data, {upsert: true}, function (err, result) {
-    if (err) next(err)
-    res.send('inspection saved')
+  }, function (err, station) {
+    if (err) return next(err)
+    station = station[0]
+    Observation.update({
+      station: station._id,
+      user: req.user._id
+    }, data, {upsert: true}, function (err2, result) {
+      if (err2) return next(err2)
+      console.log('RESULT', result)
+      res.json(result)
+    })
   })
 })

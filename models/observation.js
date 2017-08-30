@@ -1,8 +1,13 @@
 var mongoose = require('mongoose')
 var schema = new mongoose.Schema({
-  station_id: String,
-  council_id: String,
-  user_id: String,
+  station: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Station'
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
 
   // station approach
   'freeFromUndueInfluence': Boolean,
