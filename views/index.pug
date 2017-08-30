@@ -3,11 +3,28 @@ block content
   ul.silent.right
     for datum in data
       li: +data(datum.value.toLocaleString('en-GB'), datum.caption)
-  h1 What would you like to do?
-  ul
-    if user
-      li: a(href='/log-out') Log out
-    else
-      li: a(href='/create-account') Create a new account
-      li: a(href='/log-in') Log into your account
-    li: a(href='/councils') View the list of councils
+  div.twothirds
+    h1 Welcome to Scrutineer
+    p.
+      Scrutineer is a system to help anybody who wishes to observe a
+      government election in Great Britain to do so, and to share the
+      results of those observations with the wider community.
+    p.
+      Scrutineer supports all official elections that take place in
+      Great Britain. In addition to referendums, we support elections for:
+    ul
+      li the House of Commons
+      li local government
+      li the European Parliament
+      li the Scottish Parliament (“Holyrood”)
+      li the National Assembly for Wales (“Senedd”)
+      li mayors
+      li the London Assembly
+      li Police and Crime Commissioners
+    h2 How to start
+    p If you wish to record observations, you should&nbsp;
+      a(href='/access-account') log in or create an account
+      span .
+    p If you simply wish to view results, you can&nbsp;
+      a(href='/observations') access the observations
+      span .
