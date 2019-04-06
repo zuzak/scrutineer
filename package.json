@@ -5,7 +5,9 @@
   "scripts": {
     "test": "NODE_ENV='test' NO_STATION_SYNC='true' NO_COUNCIL_SYNC='true' node node_modules/selenium-cucumber-js/index.js -s ./features/steps",
     "silenttest": "NODE_ENV='test' NO_SYNC='true' node node_modules/selenium-cucumber-js/index.js -s ./features/steps > /dev/null 2> /dev/null",
-    "start": "bin/www"
+    "start": "bin/www",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -32,7 +34,7 @@
     "mongoose": "^4.11.5",
     "mongoose-password-plugin": "^0.1.2",
     "morgan": "^1.8.2",
-    "nightwatch": "^0.9.16",
+    "nightwatch": "^1.0.4",
     "node-sass-middleware": "^0.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
@@ -40,7 +42,8 @@
     "pug": "^2.0.0-rc.2",
     "request": "^2.81.0",
     "tabular-stream": "^2.0.1",
-    "the-big-username-blacklist": "^1.5.1"
+    "the-big-username-blacklist": "^1.5.1",
+    "snyk": "^1.147.4"
   },
   "devDependencies": {
     "codacy-coverage": "^2.0.2",
@@ -51,5 +54,6 @@
     "standard": "^10.0.2",
     "supertest": "^3.0.0"
   },
-  "false": {}
+  "false": {},
+  "snyk": true
 }
