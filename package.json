@@ -29,7 +29,7 @@
     "githash": "0.0.4",
     "isemail": "^3.0.0",
     "leo-profanity": "^1.2.3",
-    "mongoose": "^4.11.5",
+    "mongoose": "^6.0.4",
     "mongoose-password-plugin": "^0.1.2",
     "morgan": "^1.8.2",
     "nightwatch": "^0.9.16",
