@@ -37,7 +37,7 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "progressbar": "^1.1.1",
-    "pug": "^2.0.0-rc.2",
+    "pug": "^3.0.0",
     "request": "^2.81.0",
     "tabular-stream": "^2.0.1",
     "the-big-username-blacklist": "^1.5.1"
