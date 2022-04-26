@@ -32,7 +32,7 @@
     "mongoose": "^4.11.5",
     "mongoose-password-plugin": "^0.1.2",
     "morgan": "^1.8.2",
-    "nightwatch": "^0.9.16",
+    "nightwatch": "^1.6.0",
     "node-sass-middleware": "^0.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
