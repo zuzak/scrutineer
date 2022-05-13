@@ -33,7 +33,7 @@
     "mongoose-password-plugin": "^0.1.2",
     "morgan": "^1.8.2",
     "nightwatch": "^0.9.16",
-    "node-sass-middleware": "^0.11.0",
+    "node-sass-middleware": "^1.0.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "progressbar": "^1.1.1",
